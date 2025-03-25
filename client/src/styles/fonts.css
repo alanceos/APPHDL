@@ -1,0 +1,67 @@
+/* Custom font styles for the application */
+:root {
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+body, p, a, button, input, select, textarea {
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F5F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #C7B07B;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B4513;
+}
+
+/* Custom color utilities */
+.text-wine-red {
+  color: #722F37;
+}
+.text-gold {
+  color: #C7B07B;
+}
+.text-deep-brown {
+  color: #2C1810;
+}
+.text-saddle-brown {
+  color: #8B4513;
+}
+.bg-wine-red {
+  background-color: #722F37;
+}
+.bg-gold {
+  background-color: #C7B07B;
+}
+.bg-deep-brown {
+  background-color: #2C1810;
+}
+.bg-saddle-brown {
+  background-color: #8B4513;
+}
+.bg-cream {
+  background-color: #F8F5F0;
+}
+.border-gold {
+  border-color: #C7B07B;
+}
+.border-wine-red {
+  border-color: #722F37;
+}
+
+/* Text shadow */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
