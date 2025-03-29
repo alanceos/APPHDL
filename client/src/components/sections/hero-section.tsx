@@ -27,13 +27,13 @@ export default function HeroSection() {
             className="text-4xl md:text-6xl lg:text-7xl font-serif font-light text-white text-shadow mb-6"
             variants={fadeInUp}
           >
-            El Arte del Vino y la Literatura
+            El Arte del Vino y la Celebración
           </motion.h1>
           <motion.p 
             className="text-white text-lg md:text-xl mb-10 font-light"
             variants={fadeInUp}
           >
-            Un viaje extraordinario donde los sabores se entrelazan con la historia y las palabras
+            Un viaje extraordinario donde los sabores se entrelazan con la tradición y los momentos inolvidables
           </motion.p>
           <motion.div 
             className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6"

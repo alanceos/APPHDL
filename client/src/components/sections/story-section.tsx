@@ -22,7 +22,7 @@ export default function StorySection() {
                 className="text-3xl md:text-5xl font-serif mb-6 text-wine-red"
                 variants={fadeInUp}
               >
-                Un Legado de Excelencia Literaria
+                Un Legado de Excelencia y Celebración
               </motion.h2>
               <motion.div 
                 className="w-20 h-1 bg-gold mb-8"
@@ -32,19 +32,19 @@ export default function StorySection() {
                 className="mb-6 text-deep-brown leading-relaxed"
                 variants={fadeInUp}
               >
-                Durante más de cinco generaciones, la familia Letras ha cultivado el arte de la vinificación con pasión y precisión. Nuestra hacienda abarca 80 hectáreas del mejor terroir, nutriendo vides que producen uvas excepcionales con carácter único, mientras fomentamos el amor por la literatura.
+                Durante más de cinco generaciones, la familia Letras ha cultivado el arte de la vinificación con pasión y precisión. Nuestra hacienda abarca 80 hectáreas del mejor terroir, nutriendo vides que producen uvas excepcionales con carácter único, creando el escenario perfecto para celebraciones y eventos inolvidables.
               </motion.p>
               <motion.p 
                 className="mb-6 text-deep-brown leading-relaxed"
                 variants={fadeInUp}
               >
-                Cada botella de vino de Hacienda de Letras encapsula nuestra filosofía: un equilibrio armonioso entre tradición e innovación, donde las técnicas ancestrales se encuentran con la excelencia moderna, y los sabores se entrelazan con historias de grandes autores latinoamericanos.
+                Cada botella de vino de Hacienda de Letras encapsula nuestra filosofía: un equilibrio armonioso entre tradición e innovación, donde las técnicas ancestrales se encuentran con la excelencia moderna. Nuestros vinos son el alma de nuestras celebraciones, el compañero perfecto para los momentos especiales de la vida.
               </motion.p>
               <motion.p 
                 className="mb-10 text-deep-brown leading-relaxed"
                 variants={fadeInUp}
               >
-                Nuestro compromiso con las prácticas sostenibles garantiza que preservemos nuestra tierra para las generaciones futuras, manteniendo el delicado ecosistema que da a nuestros vinos sus cualidades distintivas, así como nuestra biblioteca de primeras ediciones y manuscritos históricos.
+                Nuestro compromiso con las prácticas sostenibles garantiza que preservemos nuestra tierra para las generaciones futuras, manteniendo el delicado ecosistema que da a nuestros vinos sus cualidades distintivas. La Hacienda de Letras no es solo un viñedo, es un destino donde la tradición vitivinícola se convierte en una experiencia festiva para todos los sentidos.
               </motion.p>
               <motion.a 
                 href="#experiences" 

@@ -80,79 +80,79 @@ export class MemStorage implements IStorage {
   private initSampleData() {
     // Create sample experiences
     this.createExperience({
-      name: "Degustación Literaria",
-      shortDescription: "Un viaje íntimo por nuestra colección premium, guiado por expertos con lecturas en vivo.",
-      description: "Disfruta de una cata cuidadosamente seleccionada de seis vinos de Hacienda de Letras, incluyendo nuestras reservas limitadas. Nuestros expertos te guiarán a través de las características únicas de cada vino mientras escuchas fragmentos literarios que complementan la experiencia.",
+      name: "Degustación Premium",
+      shortDescription: "Un viaje íntimo por nuestra colección premium, guiado por enólogos expertos.",
+      description: "Disfruta de una cata cuidadosamente seleccionada de seis vinos de Hacienda de Letras, incluyendo nuestras reservas limitadas. Nuestros expertos te guiarán a través de las características únicas de cada vino mientras descubres los secretos del maridaje perfecto en un ambiente exclusivo.",
       duration: 90,
       price: "85",
-      imageUrl: "https://images.unsplash.com/photo-1506377295141-e428b38cf867",
+      imageUrl: "https://images.pexels.com/photos/5380640/pexels-photo-5380640.jpeg",
       ratings: "5.0",
       reviewCount: 124
     });
 
     this.createExperience({
-      name: "Recorrido por la Hacienda",
-      shortDescription: "Explora nuestras bodegas históricas y viñedos seguido de una sesión de cata literaria.",
-      description: "Comienza con un recorrido guiado por nuestro viñedo histórico y las instalaciones de vinificación, donde aprenderás sobre nuestras prácticas sostenibles y legado. La experiencia concluye con una cata de nuestros vinos premiados maridados con quesos artesanales locales y lecturas de autores latinoamericanos.",
-      duration: 120,
+      name: "Fiesta de la Vendimia",
+      shortDescription: "Participa en nuestra tradicional celebración de la cosecha con música, baile y los mejores vinos.",
+      description: "Sumérgete en nuestra celebración anual de la vendimia, donde podrás participar en la cosecha y pisado tradicional de la uva. Disfruta de música en vivo, bailes regionales y una gran parrillada acompañada de nuestros mejores vinos. Una fiesta para todos los sentidos que celebra la rica tradición vitivinícola de nuestra región.",
+      duration: 240,
       price: "120",
-      imageUrl: "https://images.unsplash.com/photo-1504279577054-acfeccf8fc52",
+      imageUrl: "https://images.pexels.com/photos/5275085/pexels-photo-5275085.jpeg",
       ratings: "4.8",
       reviewCount: 98
     });
 
     this.createExperience({
-      name: "Gastronomía & Literatura",
-      shortDescription: "Una comida de cinco tiempos inspirada en grandes obras literarias y maridada con nuestros vinos.",
-      description: "Sumérgete en un viaje culinario con el menú de temporada de cinco tiempos de nuestro chef residente, cada plato inspirado en una obra literaria famosa y magistralmente maridado con nuestros vinos. Esta experiencia inmersiva muestra cómo nuestros vinos complementan y realzan la alta cocina y la literatura.",
+      name: "Cena Maridaje bajo las Estrellas",
+      shortDescription: "Una experiencia gastronómica exclusiva en nuestros viñedos iluminados bajo el cielo nocturno.",
+      description: "Vive una velada inolvidable con un menú degustación de cinco tiempos, donde cada plato está magistralmente maridado con uno de nuestros vinos premium. La cena se realiza en nuestro viñedo principal, decorado con luces y antorchas, creando un ambiente mágico bajo las estrellas con música en vivo de fondo.",
       duration: 180,
       price: "195",
-      imageUrl: "https://images.unsplash.com/photo-1432457990754-c8b5f21448de",
+      imageUrl: "https://images.pexels.com/photos/3656118/pexels-photo-3656118.jpeg",
       ratings: "5.0",
       reviewCount: 86
     });
 
     // Create sample wines
     this.createWine({
-      name: "Reserva Cien Años de Soledad",
-      vintage: "2018",
+      name: "Gran Reserva Hacienda",
+      vintage: "2015",
       category: "tinto reserva",
       price: "125",
       rating: "4.9",
-      description: "Notas de grosella negra, cedro y vainilla con taninos firmes y un final elegante y persistente. Un vino complejo como la saga de los Buendía.",
-      imageUrl: "https://images.unsplash.com/photo-1609951651556-5334e2706168",
+      description: "Nuestro vino insignia, con notas de grosella negra, cedro y vainilla con taninos firmes y un final elegante y persistente. Perfecto para celebraciones especiales y momentos que merecen ser recordados.",
+      imageUrl: "https://images.pexels.com/photos/7246427/pexels-photo-7246427.jpeg",
       isReserve: true,
       pairings: ["Cordero", "Chocolate Amargo", "Carnes Añejadas"]
     });
 
     this.createWine({
-      name: "Chardonnay Neruda",
+      name: "Chardonnay Celebración",
       vintage: "2020",
       category: "blanco",
       price: "65",
       rating: "4.7",
-      description: "Aromas de limón, manzana y roble tostado con una textura cremosa y acidez equilibrada. Tan expresivo como los versos del poeta chileno.",
-      imageUrl: "https://images.unsplash.com/photo-1662488023079-5f27f180b8b4",
+      description: "Aromas de limón, manzana y roble tostado con una textura cremosa y acidez equilibrada. El complemento perfecto para encuentros sociales y celebraciones al aire libre.",
+      imageUrl: "https://images.pexels.com/photos/6984096/pexels-photo-6984096.jpeg",
       isReserve: false,
       pairings: ["Mariscos", "Aves", "Pasta con Crema"]
     });
 
     this.createWine({
-      name: "Pinot Noir Cortázar",
+      name: "Pinot Noir Fiesta",
       vintage: "2019",
       category: "tinto",
       price: "85",
       rating: "4.8",
-      description: "Delicados aromas de cereza, frambuesa y sutiles especias con taninos sedosos y un final elegante. Tan intrincado como los cuentos del maestro argentino.",
-      imageUrl: "https://images.unsplash.com/photo-1586370434639-0fe43b2d32e6",
+      description: "Delicados aromas de cereza, frambuesa y sutiles especias con taninos sedosos y un final elegante. Un vino versátil ideal para acompañar eventos sociales y reuniones entre amigos.",
+      imageUrl: "https://images.pexels.com/photos/8471739/pexels-photo-8471739.jpeg",
       isReserve: false,
       pairings: ["Salmón", "Pato", "Platos con Hongos"]
     });
 
     // Create sample vineyard areas
     this.createVineyardArea({
-      name: "Viñedo Macondo",
-      description: "Nuestras vides más antiguas, plantadas en 1978 en una ladera orientada al sur con drenaje ideal. Nombrado en honor a la tierra mítica de García Márquez.",
+      name: "Viñedo Principal",
+      description: "Nuestras vides más antiguas, plantadas en 1978 en una ladera orientada al sur con drenaje ideal. El terroir perfecto para nuestros vinos más emblemáticos y sede de nuestros principales eventos al aire libre.",
       type: "vineyards",
       icon: "fa-wine-bottle",
       position: {x: 30, y: 25},
@@ -160,8 +160,8 @@ export class MemStorage implements IStorage {
     });
 
     this.createVineyardArea({
-      name: "Bodega & Biblioteca",
-      description: "Nuestra instalación de vanguardia donde la artesanía tradicional se encuentra con la innovación moderna. Incluye una biblioteca con primeras ediciones latinoamericanas.",
+      name: "Bodega & Centro de Eventos",
+      description: "Nuestra instalación de vanguardia donde la artesanía tradicional se encuentra con la innovación moderna. Con capacidad para grandes celebraciones y eventos corporativos en un entorno único.",
       type: "facilities",
       icon: "fa-home",
       position: {x: 40, y: 60},
@@ -169,8 +169,8 @@ export class MemStorage implements IStorage {
     });
 
     this.createVineyardArea({
-      name: "Sala de Cata & Lectura",
-      description: "Nuestra elegante sala de cata ofrece vistas panorámicas y una experiencia inmersiva de vino y literatura con lecturas programadas semanalmente.",
+      name: "Sala de Degustación VIP",
+      description: "Nuestra elegante sala de cata ofrece vistas panorámicas y una experiencia inmersiva de degustación guiada por expertos. El espacio perfecto para pequeñas celebraciones y eventos exclusivos.",
       type: "facilities",
       icon: "fa-glass-cheers",
       position: {x: 20, y: 40},

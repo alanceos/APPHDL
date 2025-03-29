@@ -19,8 +19,8 @@ export default function Footer() {
           <motion.div variants={fadeInUp}>
             <h3 className="text-2xl font-serif text-gold mb-4">Hacienda de Letras</h3>
             <p className="text-cream/80 mb-4 max-w-sm">
-              Tradición vinícola con raíces literarias en cada copa. Descubre nuestros vinos de autor 
-              que cuentan historias a través de aromas y sabores únicos.
+              Tradición vinícola y celebración en cada copa. Descubre nuestros exquisitos vinos
+              que elevan cada evento y momento especial a través de aromas y sabores únicos.
             </p>
             <div className="flex space-x-4">
               <a 
