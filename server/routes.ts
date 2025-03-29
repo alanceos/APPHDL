@@ -80,6 +80,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Get all reservations
+  app.get("/api/reservations", async (req, res) => {
+    try {
+      const reservations = await storage.getReservations();
+      res.json(reservations);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch reservations" });
+    }
+  });
+
   // Create a new reservation
   app.post("/api/reservations", async (req, res) => {
     try {
@@ -105,6 +115,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Get all contact messages
+  app.get("/api/contact-messages", async (req, res) => {
+    try {
+      const messages = await storage.getContactMessages();
+      res.json(messages);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch contact messages" });
+    }
+  });
+
   // Create a new contact message
   app.post("/api/contact", async (req, res) => {
     try {
@@ -113,7 +133,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(201).json({ 
         success: true, 
         id: message.id,
-        message: "Thank you for your message. We will get back to you soon." 
+        message: "Gracias por tu mensaje. Nos pondremos en contacto contigo pronto." 
       });
     } catch (error) {
       res.status(400).json({ message: "Invalid contact data", error });
