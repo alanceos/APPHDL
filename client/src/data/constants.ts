@@ -49,5 +49,5 @@ export const IMAGES = {
   glasses: 'https://images.pexels.com/photos/66636/pexels-photo-66636.jpeg?auto=compress&cs=tinysrgb&w=1600', // Copas de vino tinto
   celebration: 'https://images.pexels.com/photos/1123260/pexels-photo-1123260.jpeg?auto=compress&cs=tinysrgb&w=1600', // Brindis con copas
   vineyardBarrel: 'https://images.pexels.com/photos/2397398/pexels-photo-2397398.jpeg?auto=compress&cs=tinysrgb&w=1600', // Barril en viñedo
-  winePouring: '/wine-pouring.png', // Imagen de vino vertiéndose en copa
+  winePouring: '/images/Captura de pantalla 2025-03-28 a la(s) 9.41.55 p.m..png', // Imagen de vino vertiéndose en copa
 };
