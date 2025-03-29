@@ -9,11 +9,15 @@ import MobileNav from "@/components/layout/mobile-nav";
 import Header from "@/components/layout/header";
 import { useEffect, useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import ExperienciaPage from "@/pages/experiencia";
+import VinoPage from "@/pages/vino";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/experiencia/:id" component={ExperienciaPage} />
+      <Route path="/vino/:id" component={VinoPage} />
       <Route component={NotFound} />
     </Switch>
   );

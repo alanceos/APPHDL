@@ -34,18 +34,22 @@ export default function WineCard({ wine }: WineCardProps) {
       variants={fadeInUp}
     >
       <div className="overflow-hidden h-80 relative">
-        <img 
-          src={wine.imageUrl} 
-          alt={wine.name} 
-          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
-        />
-        {wine.isReserve && (
-          <div className="absolute top-4 right-4 bg-gold text-deep-brown px-3 py-1 text-xs font-medium">RESERVA</div>
-        )}
+        <a href={`/vino/${wine.id}`} className="block cursor-pointer">
+          <img 
+            src={wine.imageUrl} 
+            alt={wine.name} 
+            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
+          />
+          {wine.isReserve && (
+            <div className="absolute top-4 right-4 bg-gold text-deep-brown px-3 py-1 text-xs font-medium">RESERVA</div>
+          )}
+        </a>
       </div>
       <div className="p-6">
-        <h3 className="text-2xl font-serif mb-2 text-wine-red">{wine.name}</h3>
-        <p className="text-deep-brown italic mb-4">Cosecha {wine.vintage}</p>
+        <a href={`/vino/${wine.id}`} className="block cursor-pointer no-underline">
+          <h3 className="text-2xl font-serif mb-2 text-wine-red">{wine.name}</h3>
+          <p className="text-deep-brown italic mb-4">Cosecha {wine.vintage}</p>
+        </a>
         <div className="flex justify-between items-center mb-4">
           <span className="text-gold font-serif text-xl">${parseFloat(String(wine.price)).toFixed(2)}</span>
           <div className="flex">
@@ -99,17 +103,30 @@ export default function WineCard({ wine }: WineCardProps) {
             </svg>
             {isAddedToCart ? 'Añadido' : 'Añadir al Carrito'}
           </button>
-          <button 
-            className="text-deep-brown hover:text-wine-red transition-colors duration-300"
-            onClick={() => setIsOpen(true)}
-            aria-label="Ver detalles"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="16" x2="12" y2="12"/>
-              <line x1="12" y1="8" x2="12.01" y2="8"/>
-            </svg>
-          </button>
+          <div className="flex space-x-2">
+            <a 
+              href={`/vino/${wine.id}`}
+              className="text-deep-brown hover:text-wine-red transition-colors duration-300"
+              aria-label="Ver página completa"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+            <button 
+              className="text-deep-brown hover:text-wine-red transition-colors duration-300"
+              onClick={() => setIsOpen(true)}
+              aria-label="Ver detalles rápidos"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="16" x2="12" y2="12"/>
+                <line x1="12" y1="8" x2="12.01" y2="8"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
       

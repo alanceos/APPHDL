@@ -1,89 +1,118 @@
-import { COMPANY_INFO, NAV_LINKS } from '@/data/constants';
+import { Link } from 'wouter';
+import { motion } from 'framer-motion';
+import { fadeInUp, staggerContainer } from '@/lib/animations';
+import { Instagram, Facebook, Twitter } from 'lucide-react';
+import { COMPANY_INFO } from '@/data/constants';
 
 export default function Footer() {
   return (
-    <footer className="bg-wine-red text-white py-16">
+    <footer className="bg-deep-brown text-cream py-12">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between mb-12">
-          <div className="mb-8 md:mb-0">
-            <h3 className="text-2xl font-serif mb-6 text-gold">Estate de Vino</h3>
-            <p className="max-w-xs mb-6">A legacy of exceptional winemaking since 1892, where tradition meets innovation in every bottle.</p>
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 mb-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+        >
+          {/* Logo y descripción */}
+          <motion.div variants={fadeInUp}>
+            <h3 className="text-2xl font-serif text-gold mb-4">Hacienda de Letras</h3>
+            <p className="text-cream/80 mb-4 max-w-sm">
+              Tradición vinícola con raíces literarias en cada copa. Descubre nuestros vinos de autor 
+              que cuentan historias a través de aromas y sabores únicos.
+            </p>
             <div className="flex space-x-4">
-              <a href={COMPANY_INFO.social.instagram} className="text-white hover:text-gold transition-colors duration-300" aria-label="Instagram">
-                <i className="fab fa-instagram"></i>
+              <a 
+                href={COMPANY_INFO.social.instagram} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-cream hover:text-gold transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
               </a>
-              <a href={COMPANY_INFO.social.facebook} className="text-white hover:text-gold transition-colors duration-300" aria-label="Facebook">
-                <i className="fab fa-facebook-f"></i>
+              <a 
+                href={COMPANY_INFO.social.facebook} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-cream hover:text-gold transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook size={20} />
               </a>
-              <a href={COMPANY_INFO.social.twitter} className="text-white hover:text-gold transition-colors duration-300" aria-label="Twitter">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href={COMPANY_INFO.social.pinterest} className="text-white hover:text-gold transition-colors duration-300" aria-label="Pinterest">
-                <i className="fab fa-pinterest"></i>
+              <a 
+                href={COMPANY_INFO.social.twitter} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-cream hover:text-gold transition-colors"
+                aria-label="Twitter"
+              >
+                <Twitter size={20} />
               </a>
             </div>
-          </div>
+          </motion.div>
           
-          <div className="mb-8 md:mb-0">
-            <h4 className="text-lg font-serif mb-4 text-gold">Quick Links</h4>
+          {/* Enlaces rápidos */}
+          <motion.div variants={fadeInUp}>
+            <h4 className="text-lg font-serif text-gold mb-4">Enlaces Rápidos</h4>
             <ul className="space-y-2">
-              {NAV_LINKS.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href} 
-                    className="hover:text-gold transition-colors duration-300"
-                  >
-                    {link.name === 'RESERVE' ? 'Reservations' : link.name.charAt(0) + link.name.slice(1).toLowerCase()}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div className="mb-8 md:mb-0">
-            <h4 className="text-lg font-serif mb-4 text-gold">Visit Us</h4>
-            <address className="not-italic">
-              <p className="mb-2">{COMPANY_INFO.address.split(',')[0]}</p>
-              <p className="mb-2">{COMPANY_INFO.address.split(',')[1]}, {COMPANY_INFO.address.split(',')[2]}</p>
-              <p className="mb-4">{COMPANY_INFO.phone}</p>
-              <p>
-                <a 
-                  href={`mailto:${COMPANY_INFO.email}`} 
-                  className="hover:text-gold transition-colors duration-300"
-                >
-                  {COMPANY_INFO.email}
+              <li>
+                <a href="/#story" className="text-cream/80 hover:text-gold transition-colors">
+                  Nuestra Historia
                 </a>
+              </li>
+              <li>
+                <a href="/#experiences" className="text-cream/80 hover:text-gold transition-colors">
+                  Experiencias
+                </a>
+              </li>
+              <li>
+                <a href="/#wines" className="text-cream/80 hover:text-gold transition-colors">
+                  Vinos
+                </a>
+              </li>
+              <li>
+                <a href="/#vineyard" className="text-cream/80 hover:text-gold transition-colors">
+                  Viñedo
+                </a>
+              </li>
+              <li>
+                <a href="/#contact" className="text-cream/80 hover:text-gold transition-colors">
+                  Contacto
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+          
+          {/* Información de contacto */}
+          <motion.div variants={fadeInUp}>
+            <h4 className="text-lg font-serif text-gold mb-4">Visítanos</h4>
+            <address className="not-italic text-cream/80 mb-4">
+              <p>{COMPANY_INFO.address}</p>
+              <p className="mt-2">
+                <span className="block">Teléfono: {COMPANY_INFO.phone}</span>
+                <span className="block">Email: {COMPANY_INFO.email}</span>
               </p>
             </address>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-serif mb-4 text-gold">Newsletter</h4>
-            <p className="mb-4 max-w-xs">Subscribe to receive updates on new releases, events, and special offers.</p>
-            <form className="flex" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="px-4 py-2 w-full text-deep-brown focus:outline-none"
-                aria-label="Email for newsletter"
-              />
-              <button 
-                type="submit" 
-                className="bg-gold text-deep-brown px-4 hover:bg-white transition-colors duration-300"
-                aria-label="Subscribe to newsletter"
-              >
-                <i className="fas fa-arrow-right"></i>
-              </button>
-            </form>
-          </div>
-        </div>
+            <div className="text-cream/80">
+              <h5 className="font-medium text-gold text-sm mt-4">Horarios:</h5>
+              <p className="text-sm">Degustaciones: {COMPANY_INFO.hours.toursTastings}</p>
+              <p className="text-sm">Restaurante: {COMPANY_INFO.hours.restaurant}</p>
+              <p className="text-sm">Tienda: {COMPANY_INFO.hours.wineShop}</p>
+            </div>
+          </motion.div>
+        </motion.div>
         
-        <div className="pt-8 border-t border-gold/30 flex flex-col md:flex-row justify-between items-center">
-          <p className="mb-4 md:mb-0">&copy; {new Date().getFullYear()} Estate de Vino. All rights reserved.</p>
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-gold transition-colors duration-300 text-sm">Privacy Policy</a>
-            <a href="#" className="hover:text-gold transition-colors duration-300 text-sm">Terms of Service</a>
-            <a href="#" className="hover:text-gold transition-colors duration-300 text-sm">Sitemap</a>
+        <div className="border-t border-cream/20 pt-6 mt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-cream/60 text-sm">
+              &copy; {new Date().getFullYear()} Hacienda de Letras. Todos los derechos reservados.
+            </p>
+            <div className="flex space-x-4 mt-4 md:mt-0 text-sm text-cream/60">
+              <a href="#" className="hover:text-gold transition-colors">Política de Privacidad</a>
+              <a href="#" className="hover:text-gold transition-colors">Términos y Condiciones</a>
+            </div>
           </div>
         </div>
       </div>
