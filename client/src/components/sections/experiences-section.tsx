@@ -23,7 +23,7 @@ export default function ExperiencesSection() {
             className="text-3xl md:text-5xl font-serif mb-6 text-wine-red"
             variants={fadeInUp}
           >
-            Curated Experiences
+            Experiencias Seleccionadas
           </motion.h2>
           <motion.div 
             className="w-20 h-1 bg-gold mb-8 mx-auto"
@@ -33,7 +33,7 @@ export default function ExperiencesSection() {
             className="text-deep-brown leading-relaxed"
             variants={fadeInUp}
           >
-            Immerse yourself in the art and science of winemaking through our carefully crafted experiences. Each journey offers a unique perspective on our heritage, process, and passion.
+            Sumérgete en el arte y la ciencia de la elaboración del vino a través de nuestras experiencias cuidadosamente diseñadas. Cada recorrido ofrece una perspectiva única sobre nuestra herencia, proceso y pasión.
           </motion.p>
         </motion.div>
         
@@ -51,7 +51,7 @@ export default function ExperiencesSection() {
             ))
           ) : error ? (
             <div className="col-span-3 text-center text-wine-red">
-              Failed to load experiences. Please try again later.
+              Error al cargar las experiencias. Por favor, inténtelo de nuevo más tarde.
             </div>
           ) : (
             experiences?.map((experience) => (
@@ -71,7 +71,7 @@ export default function ExperiencesSection() {
             href="#reserve" 
             className="inline-block bg-wine-red text-white hover:bg-gold hover:text-deep-brown px-8 py-3 transition-colors duration-300 font-sans tracking-wider text-sm font-medium"
           >
-            BOOK YOUR EXPERIENCE
+            RESERVA TU EXPERIENCIA
           </a>
         </motion.div>
       </div>

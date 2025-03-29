@@ -40,7 +40,7 @@ export default function WineSection() {
             className="text-3xl md:text-5xl font-serif mb-6 text-wine-red"
             variants={fadeInUp}
           >
-            Our Collection
+            Nuestra Colección
           </motion.h2>
           <motion.div 
             className="w-20 h-1 bg-gold mb-8 mx-auto"
@@ -50,7 +50,7 @@ export default function WineSection() {
             className="text-deep-brown leading-relaxed"
             variants={fadeInUp}
           >
-            Each bottle represents the perfect harmony of nature, tradition, and craftsmanship. Explore our award-winning selections, each with its own unique story and character.
+            Cada botella representa la perfecta armonía entre naturaleza, tradición y artesanía. Explore nuestras selecciones premiadas, cada una con su propia historia y carácter único.
           </motion.p>
         </motion.div>
         
@@ -66,25 +66,25 @@ export default function WineSection() {
             className={`px-6 py-2 border border-wine-red ${activeCategory === 'all' ? 'bg-wine-red text-white' : 'text-wine-red hover:bg-wine-red hover:text-white'} transition-colors duration-300 text-sm`}
             onClick={() => handleCategoryChange('all')}
           >
-            All Wines
+            Todos los Vinos
           </button>
           <button 
             className={`px-6 py-2 border border-wine-red ${activeCategory === 'red' ? 'bg-wine-red text-white' : 'text-wine-red hover:bg-wine-red hover:text-white'} transition-colors duration-300 text-sm`}
             onClick={() => handleCategoryChange('red')}
           >
-            Red Wines
+            Vinos Tintos
           </button>
           <button 
             className={`px-6 py-2 border border-wine-red ${activeCategory === 'white' ? 'bg-wine-red text-white' : 'text-wine-red hover:bg-wine-red hover:text-white'} transition-colors duration-300 text-sm`}
             onClick={() => handleCategoryChange('white')}
           >
-            White Wines
+            Vinos Blancos
           </button>
           <button 
             className={`px-6 py-2 border border-wine-red ${activeCategory === 'reserve' ? 'bg-wine-red text-white' : 'text-wine-red hover:bg-wine-red hover:text-white'} transition-colors duration-300 text-sm`}
             onClick={() => handleCategoryChange('reserve')}
           >
-            Reserve Selection
+            Reserva Especial
           </button>
         </motion.div>
         
@@ -102,11 +102,11 @@ export default function WineSection() {
             ))
           ) : error ? (
             <div className="col-span-3 text-center text-wine-red">
-              Failed to load wines. Please try again later.
+              Error al cargar los vinos. Por favor, inténtelo de nuevo más tarde.
             </div>
           ) : wines?.length === 0 ? (
             <div className="col-span-3 text-center text-deep-brown py-12">
-              No wines found in this category.
+              No se encontraron vinos en esta categoría.
             </div>
           ) : (
             wines?.map((wine) => (
@@ -126,7 +126,7 @@ export default function WineSection() {
             href="#" 
             className="inline-block border-b-2 border-gold text-deep-brown hover:text-wine-red transition-colors duration-300 font-medium"
           >
-            VIEW FULL COLLECTION
+            VER COLECCIÓN COMPLETA
           </a>
         </motion.div>
       </div>

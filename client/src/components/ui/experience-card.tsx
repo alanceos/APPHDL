@@ -23,13 +23,16 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
         <h3 className="text-2xl font-serif mb-3 text-wine-red">{experience.name}</h3>
         <p className="text-deep-brown mb-4">{experience.shortDescription}</p>
         <div className="flex justify-between items-center">
-          <span className="text-gold font-serif text-xl">${parseFloat(String(experience.price)).toFixed(2)} per person</span>
+          <span className="text-gold font-serif text-xl">${parseFloat(String(experience.price)).toFixed(2)} por persona</span>
           <a 
             href="#reserve" 
             className="text-deep-brown hover:text-wine-red transition-colors duration-300"
-            aria-label={`Reserve ${experience.name}`}
+            aria-label={`Reservar ${experience.name}`}
           >
-            <i className="fas fa-arrow-right"></i>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
           </a>
         </div>
       </div>

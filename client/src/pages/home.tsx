@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import HeroSection from '@/components/sections/hero-section';
 import StorySection from '@/components/sections/story-section';
@@ -9,8 +8,11 @@ import WineSection from '@/components/sections/wine-section';
 import VineyardMapSection from '@/components/sections/vineyard-map-section';
 import ContactSection from '@/components/sections/contact-section';
 import ReservationSection from '@/components/sections/reservation-section';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export default function Home() {
+  const isMobile = useIsMobile();
+  
   // Smooth scrolling for anchor links
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
@@ -24,7 +26,13 @@ export default function Home() {
         
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-          targetElement.scrollIntoView({
+          // Ajuste del desplazamiento para compensar el encabezado fijo en móvil
+          const offsetY = isMobile ? -56 : 0;
+          
+          const y = targetElement.getBoundingClientRect().top + window.pageYOffset + offsetY;
+          
+          window.scrollTo({
+            top: y,
             behavior: 'smooth'
           });
         }
@@ -36,13 +44,11 @@ export default function Home() {
     return () => {
       document.removeEventListener('click', handleAnchorClick);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
-      
-      <main className="flex-grow">
+      <main className={`flex-grow ${isMobile ? 'pt-14 pb-16' : ''}`}>
         <HeroSection />
         <StorySection />
         <ExperiencesSection />

@@ -18,8 +18,8 @@ export default function WineCard({ wine }: WineCardProps) {
   const handleAddToCart = () => {
     setIsAddedToCart(true);
     toast({
-      title: "Added to Cart",
-      description: `${wine.name} has been added to your cart.`,
+      title: "Añadido al Carrito",
+      description: `${wine.name} ha sido añadido a tu carrito.`,
     });
     
     // Reset the button after 2 seconds
@@ -40,35 +40,39 @@ export default function WineCard({ wine }: WineCardProps) {
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
         />
         {wine.isReserve && (
-          <div className="absolute top-4 right-4 bg-gold text-deep-brown px-3 py-1 text-xs font-medium">RESERVE</div>
+          <div className="absolute top-4 right-4 bg-gold text-deep-brown px-3 py-1 text-xs font-medium">RESERVA</div>
         )}
       </div>
       <div className="p-6">
         <h3 className="text-2xl font-serif mb-2 text-wine-red">{wine.name}</h3>
-        <p className="text-deep-brown italic mb-4">{wine.vintage} Vintage</p>
+        <p className="text-deep-brown italic mb-4">Cosecha {wine.vintage}</p>
         <div className="flex justify-between items-center mb-4">
           <span className="text-gold font-serif text-xl">${parseFloat(String(wine.price)).toFixed(2)}</span>
           <div className="flex">
             <span className="text-deep-brown mr-1">{wine.rating}</span>
             <div className="flex text-gold">
               {Array.from({ length: 5 }).map((_, index) => (
-                <i 
+                <svg 
                   key={index} 
-                  className={`fas ${
-                    index < Math.floor(parseFloat(String(wine.rating))) 
-                      ? 'fa-star' 
-                      : index < parseFloat(String(wine.rating)) 
-                        ? 'fa-star-half-alt' 
-                        : 'fa-star'
-                  }`}
-                ></i>
+                  width="14" 
+                  height="14" 
+                  viewBox="0 0 24 24" 
+                  fill={index < Math.floor(parseFloat(String(wine.rating))) ? "currentColor" : "none"}
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                  className="ml-0.5"
+                >
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
               ))}
             </div>
           </div>
         </div>
         <p className="text-deep-brown mb-4 text-sm">{wine.description}</p>
         <div className="mb-4">
-          <h4 className="text-wine-red font-medium mb-2 text-sm">Pairs Well With:</h4>
+          <h4 className="text-wine-red font-medium mb-2 text-sm">Combina bien con:</h4>
           <div className="flex flex-wrap gap-2 text-xs">
             {wine.pairings.map((pairing, index) => (
               <span key={index} className="bg-cream px-3 py-1 rounded-full text-deep-brown">
@@ -82,25 +86,39 @@ export default function WineCard({ wine }: WineCardProps) {
             className={`text-${isAddedToCart ? 'gold' : 'wine-red'} hover:text-gold transition-colors duration-300 text-sm flex items-center`}
             onClick={handleAddToCart}
           >
-            <i className={`fas ${isAddedToCart ? 'fa-check' : 'fa-plus-circle'} mr-2`}></i> 
-            {isAddedToCart ? 'Added to Cart' : 'Add to Cart'}
+            <svg className="mr-2 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {isAddedToCart ? (
+                <path d="M20 6L9 17l-5-5"/>
+              ) : (
+                <>
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="16"/>
+                  <line x1="8" y1="12" x2="16" y2="12"/>
+                </>
+              )}
+            </svg>
+            {isAddedToCart ? 'Añadido' : 'Añadir al Carrito'}
           </button>
           <button 
             className="text-deep-brown hover:text-wine-red transition-colors duration-300"
             onClick={() => setIsOpen(true)}
-            aria-label="View details"
+            aria-label="Ver detalles"
           >
-            <i className="fas fa-info-circle"></i>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
           </button>
         </div>
       </div>
       
-      {/* Wine Details Dialog */}
+      {/* Diálogo de Detalles del Vino */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="max-w-3xl bg-cream">
           <DialogHeader>
             <DialogTitle className="text-2xl font-serif text-wine-red">{wine.name}</DialogTitle>
-            <DialogDescription className="text-deep-brown italic">{wine.vintage} Vintage</DialogDescription>
+            <DialogDescription className="text-deep-brown italic">Cosecha {wine.vintage}</DialogDescription>
           </DialogHeader>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
@@ -113,12 +131,12 @@ export default function WineCard({ wine }: WineCardProps) {
             </div>
             <div className="space-y-4">
               <div>
-                <h4 className="text-lg font-serif text-wine-red mb-2">Tasting Notes</h4>
+                <h4 className="text-lg font-serif text-wine-red mb-2">Notas de Cata</h4>
                 <p className="text-deep-brown">{wine.description}</p>
               </div>
               
               <div>
-                <h4 className="text-lg font-serif text-wine-red mb-2">Pairings</h4>
+                <h4 className="text-lg font-serif text-wine-red mb-2">Maridajes</h4>
                 <div className="flex flex-wrap gap-2">
                   {wine.pairings.map((pairing, index) => (
                     <span key={index} className="bg-white px-3 py-1 rounded-full text-deep-brown text-sm">
@@ -130,25 +148,28 @@ export default function WineCard({ wine }: WineCardProps) {
               
               <div className="flex justify-between items-center pt-4 border-t border-gold/30">
                 <div>
-                  <span className="block text-deep-brown">Price</span>
+                  <span className="block text-deep-brown">Precio</span>
                   <span className="text-xl font-serif text-gold">${parseFloat(String(wine.price)).toFixed(2)}</span>
                 </div>
                 <div>
-                  <span className="block text-deep-brown">Rating</span>
+                  <span className="block text-deep-brown">Calificación</span>
                   <div className="flex items-center">
                     <span className="text-deep-brown mr-1">{wine.rating}</span>
                     <div className="flex text-gold">
                       {Array.from({ length: 5 }).map((_, index) => (
-                        <i 
+                        <svg 
                           key={index} 
-                          className={`fas ${
-                            index < Math.floor(parseFloat(String(wine.rating))) 
-                              ? 'fa-star' 
-                              : index < parseFloat(String(wine.rating)) 
-                                ? 'fa-star-half-alt' 
-                                : 'fa-star'
-                          }`}
-                        ></i>
+                          width="16" 
+                          height="16" 
+                          viewBox="0 0 24 24" 
+                          fill={index < Math.floor(parseFloat(String(wine.rating))) ? "currentColor" : "none"}
+                          stroke="currentColor" 
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                        >
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
                       ))}
                     </div>
                   </div>
@@ -159,7 +180,7 @@ export default function WineCard({ wine }: WineCardProps) {
                 className="w-full bg-wine-red text-white hover:bg-gold hover:text-deep-brown transition-colors duration-300"
                 onClick={handleAddToCart}
               >
-                Add to Cart
+                Añadir al Carrito
               </Button>
             </div>
           </div>

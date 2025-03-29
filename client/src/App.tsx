@@ -5,7 +5,10 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import LoadingScreen from "@/components/sections/loading-screen";
+import MobileNav from "@/components/layout/mobile-nav";
+import Header from "@/components/layout/header";
 import { useEffect, useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 function Router() {
   return (
@@ -18,9 +21,13 @@ function Router() {
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
-    // Simulate loading time for a more luxurious experience
+    // Actualizar el título de la página
+    document.title = "Hacienda de Letras";
+    
+    // Simular tiempo de carga para una experiencia más lujosa
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1200);
@@ -30,7 +37,13 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {loading ? <LoadingScreen /> : <Router />}
+      {loading ? <LoadingScreen /> : (
+        <>
+          <Header />
+          <Router />
+          {isMobile && <MobileNav />}
+        </>
+      )}
       <Toaster />
     </QueryClientProvider>
   );

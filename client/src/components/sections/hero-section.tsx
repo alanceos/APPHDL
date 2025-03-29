@@ -66,7 +66,9 @@ export default function HeroSection() {
         }}
       >
         <a href="#story" className="text-white" aria-label="Scroll down">
-          <i className="fas fa-chevron-down text-2xl"></i>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
         </a>
       </motion.div>
     </section>
