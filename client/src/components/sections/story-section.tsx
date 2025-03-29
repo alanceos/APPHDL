@@ -48,11 +48,22 @@ export default function StorySection() {
               </motion.p>
               <motion.a 
                 href="#experiences" 
-                className="inline-block border-b-2 border-gold text-deep-brown hover:text-wine-red transition-colors duration-300 font-medium"
+                className="inline-block border-b-2 border-gold text-deep-brown hover:text-wine-red transition-colors duration-300 font-medium mb-8"
                 variants={fadeInUp}
               >
                 EXPLORA NUESTRA HACIENDA
               </motion.a>
+
+              <motion.div 
+                className="mt-8 w-full"
+                variants={fadeInUp}
+              >
+                <img 
+                  src={IMAGES.winePouring} 
+                  alt="Vino vertiéndose en copa" 
+                  className="w-full max-w-md rounded-lg shadow-lg"
+                />
+              </motion.div>
             </motion.div>
             <motion.div 
               className="md:w-1/2 relative h-96 md:h-auto overflow-hidden"
