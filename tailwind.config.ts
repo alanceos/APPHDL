@@ -44,6 +44,11 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        // Hacienda de Letras custom colors
+        'wine-red': '#722F37',
+        'gold': '#C7B07B',
+        'deep-brown': '#2C1810',
+        'cream': '#F8F4E9',
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",
