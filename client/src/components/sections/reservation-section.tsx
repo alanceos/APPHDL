@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { COMPANY_INFO } from '@/data/constants';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { format } from 'date-fns';
@@ -24,20 +25,20 @@ type Step = 'experience' | 'datetime' | 'details' | 'payment' | 'confirmation';
 // Extend the reservation schema
 const reservationFormSchema = insertReservationSchema.extend({
   date: z.date({
-    required_error: "Please select a date",
+    required_error: "Por favor, selecciona una fecha",
   }),
   time: z.string({
-    required_error: "Please select a time",
+    required_error: "Por favor, selecciona una hora",
   }),
-  fullName: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
-  guests: z.coerce.number().min(1, "At least 1 guest required").max(20, "Maximum 20 guests"),
+  fullName: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
+  email: z.string().email("Por favor, introduce un correo electrónico válido"),
+  phone: z.string().min(10, "Por favor, introduce un número de teléfono válido"),
+  guests: z.coerce.number().min(1, "Se requiere al menos 1 invitado").max(20, "Máximo 20 invitados"),
   specialRequests: z.string().optional(),
-  cardNumber: z.string().min(16, "Please enter a valid card number"),
-  expiryDate: z.string().regex(/^\d{2}\/\d{2}$/, "Please enter a valid expiry date (MM/YY)"),
-  cvv: z.string().min(3, "Please enter a valid CVV"),
-  billingZip: z.string().min(5, "Please enter a valid zip code"),
+  cardNumber: z.string().min(16, "Por favor, introduce un número de tarjeta válido"),
+  expiryDate: z.string().regex(/^\d{2}\/\d{2}$/, "Por favor, introduce una fecha de caducidad válida (MM/AA)"),
+  cvv: z.string().min(3, "Por favor, introduce un CVV válido"),
+  billingZip: z.string().min(5, "Por favor, introduce un código postal válido"),
 });
 
 type ReservationFormValues = z.infer<typeof reservationFormSchema>;
@@ -127,8 +128,8 @@ export default function ReservationSection() {
     if (currentStep === 'experience') {
       if (!selectedExperienceId) {
         toast({
-          title: "Please Select an Experience",
-          description: "You must select an experience to continue.",
+          title: "Por favor, Selecciona una Experiencia",
+          description: "Debes seleccionar una experiencia para continuar.",
           variant: "destructive",
         });
         return;
@@ -140,8 +141,8 @@ export default function ReservationSection() {
       
       if (!date || !time) {
         toast({
-          title: "Date and Time Required",
-          description: "Please select both a date and time for your reservation.",
+          title: "Fecha y Hora Requeridas",
+          description: "Por favor, selecciona tanto una fecha como una hora para tu reserva.",
           variant: "destructive",
         });
         return;
@@ -189,7 +190,7 @@ export default function ReservationSection() {
             className="text-3xl md:text-5xl font-serif mb-6 text-wine-red"
             variants={fadeInUp}
           >
-            Reserve Your Experience
+            Reserva Tu Experiencia
           </motion.h2>
           <motion.div 
             className="w-20 h-1 bg-gold mb-8 mx-auto"
@@ -199,7 +200,7 @@ export default function ReservationSection() {
             className="text-deep-brown leading-relaxed"
             variants={fadeInUp}
           >
-            Select your preferred experience, date, and time to embark on a journey through our vineyard's heritage and flavors.
+            Selecciona tu experiencia preferida, fecha y hora para embarcarte en un viaje a través de la herencia y sabores de nuestro viñedo.
           </motion.p>
         </motion.div>
         
@@ -216,37 +217,37 @@ export default function ReservationSection() {
             
             <div className={`reservation-step flex flex-col items-center z-10 ${currentStep === 'experience' || currentStep === 'datetime' || currentStep === 'details' || currentStep === 'payment' || currentStep === 'confirmation' ? 'active' : ''}`}>
               <div className={`w-10 h-10 rounded-full ${currentStep === 'experience' || currentStep === 'datetime' || currentStep === 'details' || currentStep === 'payment' || currentStep === 'confirmation' ? 'bg-wine-red text-white' : 'bg-gray-300 text-deep-brown'} flex items-center justify-center mb-2`}>1</div>
-              <span className="text-deep-brown text-sm">Experience</span>
+              <span className="text-deep-brown text-sm">Experiencia</span>
             </div>
             
             <div className={`reservation-step flex flex-col items-center z-10 ${currentStep === 'datetime' || currentStep === 'details' || currentStep === 'payment' || currentStep === 'confirmation' ? 'active' : ''}`}>
               <div className={`w-10 h-10 rounded-full ${currentStep === 'datetime' || currentStep === 'details' || currentStep === 'payment' || currentStep === 'confirmation' ? 'bg-wine-red text-white' : 'bg-gray-300 text-deep-brown'} flex items-center justify-center mb-2`}>2</div>
-              <span className="text-deep-brown text-sm">Date & Time</span>
+              <span className="text-deep-brown text-sm">Fecha y Hora</span>
             </div>
             
             <div className={`reservation-step flex flex-col items-center z-10 ${currentStep === 'details' || currentStep === 'payment' || currentStep === 'confirmation' ? 'active' : ''}`}>
               <div className={`w-10 h-10 rounded-full ${currentStep === 'details' || currentStep === 'payment' || currentStep === 'confirmation' ? 'bg-wine-red text-white' : 'bg-gray-300 text-deep-brown'} flex items-center justify-center mb-2`}>3</div>
-              <span className="text-deep-brown text-sm">Details</span>
+              <span className="text-deep-brown text-sm">Detalles</span>
             </div>
             
             <div className={`reservation-step flex flex-col items-center z-10 ${currentStep === 'payment' || currentStep === 'confirmation' ? 'active' : ''}`}>
               <div className={`w-10 h-10 rounded-full ${currentStep === 'payment' || currentStep === 'confirmation' ? 'bg-wine-red text-white' : 'bg-gray-300 text-deep-brown'} flex items-center justify-center mb-2`}>4</div>
-              <span className="text-deep-brown text-sm">Payment</span>
+              <span className="text-deep-brown text-sm">Pago</span>
             </div>
             
             <div className={`reservation-step flex flex-col items-center z-10 ${currentStep === 'confirmation' ? 'active' : ''}`}>
               <div className={`w-10 h-10 rounded-full ${currentStep === 'confirmation' ? 'bg-wine-red text-white' : 'bg-gray-300 text-deep-brown'} flex items-center justify-center mb-2`}>5</div>
-              <span className="text-deep-brown text-sm">Confirmation</span>
+              <span className="text-deep-brown text-sm">Confirmación</span>
             </div>
           </div>
           
           {/* Experience Selection Step */}
           {currentStep === 'experience' && (
             <div className="reservation-form">
-              <h3 className="text-2xl font-serif mb-6 text-wine-red text-center">Select Your Experience</h3>
+              <h3 className="text-2xl font-serif mb-6 text-wine-red text-center">Selecciona tu Experiencia</h3>
               
               {isLoading ? (
-                <div className="text-center py-8">Loading experiences...</div>
+                <div className="text-center py-8">Cargando experiencias...</div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   {experiences?.map((experience) => (
@@ -288,7 +289,7 @@ export default function ReservationSection() {
                   className="bg-wine-red text-white hover:bg-gold hover:text-deep-brown px-8 py-3 transition-colors duration-300 font-sans tracking-wider text-sm font-medium"
                   disabled={isLoading}
                 >
-                  CONTINUE
+                  CONTINUAR
                 </Button>
               </div>
             </div>
@@ -297,7 +298,7 @@ export default function ReservationSection() {
           {/* Date and Time Selection Step */}
           {currentStep === 'datetime' && (
             <div className="reservation-form">
-              <h3 className="text-2xl font-serif mb-6 text-wine-red text-center">Select Date & Time</h3>
+              <h3 className="text-2xl font-serif mb-6 text-wine-red text-center">Selecciona Fecha y Hora</h3>
               
               <Form {...form}>
                 <form className="space-y-6 mb-8">
@@ -375,13 +376,13 @@ export default function ReservationSection() {
                   onClick={handleBack}
                   className="bg-gray-300 text-deep-brown hover:bg-gray-400 px-6 py-2 transition-colors duration-300 font-sans tracking-wider text-sm font-medium"
                 >
-                  BACK
+                  ATRÁS
                 </Button>
                 <Button 
                   onClick={handleContinue}
                   className="bg-wine-red text-white hover:bg-gold hover:text-deep-brown px-8 py-3 transition-colors duration-300 font-sans tracking-wider text-sm font-medium"
                 >
-                  CONTINUE
+                  CONTINUAR
                 </Button>
               </div>
             </div>
@@ -513,13 +514,13 @@ export default function ReservationSection() {
                   onClick={handleBack}
                   className="bg-gray-300 text-deep-brown hover:bg-gray-400 px-6 py-2 transition-colors duration-300 font-sans tracking-wider text-sm font-medium"
                 >
-                  BACK
+                  ATRÁS
                 </Button>
                 <Button 
                   onClick={handleContinue}
                   className="bg-wine-red text-white hover:bg-gold hover:text-deep-brown px-8 py-3 transition-colors duration-300 font-sans tracking-wider text-sm font-medium"
                 >
-                  CONTINUE
+                  CONTINUAR
                 </Button>
               </div>
             </div>
@@ -640,7 +641,7 @@ export default function ReservationSection() {
                   onClick={handleBack}
                   className="bg-gray-300 text-deep-brown hover:bg-gray-400 px-6 py-2 transition-colors duration-300 font-sans tracking-wider text-sm font-medium"
                 >
-                  BACK
+                  ATRÁS
                 </Button>
                 <Button 
                   onClick={handleContinue}
@@ -682,10 +683,10 @@ export default function ReservationSection() {
               </div>
               <div className="space-y-4">
                 <p className="text-deep-brown">
-                  We look forward to welcoming you to Estate de Vino.
+                  Esperamos darle la bienvenida a Hacienda de Letras.
                 </p>
                 <p className="text-deep-brown">
-                  If you have any questions before your visit, please contact us at {COMPANY_INFO.phone}.
+                  Si tiene alguna pregunta antes de su visita, contáctenos al {COMPANY_INFO.phone}.
                 </p>
               </div>
             </div>

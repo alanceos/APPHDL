@@ -8,6 +8,7 @@ import WineSection from '@/components/sections/wine-section';
 import VineyardMapSection from '@/components/sections/vineyard-map-section';
 import ContactSection from '@/components/sections/contact-section';
 import ReservationSection from '@/components/sections/reservation-section';
+import EventsCalendarSection from '@/components/sections/events-calendar-section';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 export default function Home() {
@@ -55,6 +56,7 @@ export default function Home() {
         <ParallaxSection />
         <WineSection />
         <VineyardMapSection />
+        <EventsCalendarSection />
         <ContactSection />
         <ReservationSection />
       </main>

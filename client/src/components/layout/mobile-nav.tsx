@@ -7,6 +7,7 @@ import {
   GlassWater, 
   Wine, 
   MapPin, 
+  Calendar, 
   MessageSquare, 
   CalendarCheck 
 } from 'lucide-react';
@@ -21,6 +22,7 @@ export default function MobileNav() {
     '#experiences': <GlassWater size={22} />,
     '#wines': <Wine size={22} />,
     '#vineyard': <MapPin size={22} />,
+    '#events': <Calendar size={22} />,
     '#contact': <MessageSquare size={22} />,
     '#reserve': <CalendarCheck size={22} />,
   };
@@ -30,8 +32,8 @@ export default function MobileNav() {
     NAV_LINKS[0], // Historia
     NAV_LINKS[1], // Experiencias
     NAV_LINKS[2], // Vinos
-    NAV_LINKS[4], // Contacto
-    NAV_LINKS[5], // Reservar
+    NAV_LINKS[4], // Eventos
+    NAV_LINKS[6], // Reservar
   ];
   
   const navItems = mobileNavItems;

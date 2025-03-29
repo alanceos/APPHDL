@@ -34,6 +34,7 @@ export const NAV_LINKS = [
   { name: 'EXPERIENCIAS', href: '#experiences' },
   { name: 'VINOS', href: '#wines' },
   { name: 'VIÑEDO', href: '#vineyard' },
+  { name: 'EVENTOS', href: '#events' },
   { name: 'CONTACTO', href: '#contact' },
   { name: 'RESERVAR', href: '#reserve', isButton: true },
 ];
