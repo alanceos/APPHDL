@@ -80,9 +80,9 @@ export class MemStorage implements IStorage {
   private initSampleData() {
     // Create sample experiences
     this.createExperience({
-      name: "Signature Tasting",
-      shortDescription: "An intimate journey through our premium collection, guided by our expert sommeliers.",
-      description: "Experience a carefully curated tasting of six Estate de Vino wines, including our limited reserve selections. Our expert sommeliers will guide you through each wine's unique characteristics and the stories behind them.",
+      name: "Degustación Literaria",
+      shortDescription: "Un viaje íntimo por nuestra colección premium, guiado por expertos con lecturas en vivo.",
+      description: "Disfruta de una cata cuidadosamente seleccionada de seis vinos de Hacienda de Letras, incluyendo nuestras reservas limitadas. Nuestros expertos te guiarán a través de las características únicas de cada vino mientras escuchas fragmentos literarios que complementan la experiencia.",
       duration: 90,
       price: "85",
       imageUrl: "https://images.unsplash.com/photo-1506377295141-e428b38cf867",
@@ -91,9 +91,9 @@ export class MemStorage implements IStorage {
     });
 
     this.createExperience({
-      name: "Estate Tour & Tasting",
-      shortDescription: "Explore our historic cellars and vineyards followed by a curated tasting session.",
-      description: "Begin with a guided tour of our historic vineyard and winemaking facilities, where you'll learn about our sustainable practices and legacy. The experience concludes with a tasting of our award-winning wines paired with local artisanal cheeses.",
+      name: "Recorrido por la Hacienda",
+      shortDescription: "Explora nuestras bodegas históricas y viñedos seguido de una sesión de cata literaria.",
+      description: "Comienza con un recorrido guiado por nuestro viñedo histórico y las instalaciones de vinificación, donde aprenderás sobre nuestras prácticas sostenibles y legado. La experiencia concluye con una cata de nuestros vinos premiados maridados con quesos artesanales locales y lecturas de autores latinoamericanos.",
       duration: 120,
       price: "120",
       imageUrl: "https://images.unsplash.com/photo-1504279577054-acfeccf8fc52",
@@ -102,9 +102,9 @@ export class MemStorage implements IStorage {
     });
 
     this.createExperience({
-      name: "Wine & Gastronomy",
-      shortDescription: "A five-course seasonal meal expertly paired with our estate wines by our resident chef.",
-      description: "Indulge in a culinary journey with our resident chef's seasonal five-course menu, each dish thoughtfully paired with our estate wines. This immersive dining experience showcases how our wines complement and enhance fine cuisine.",
+      name: "Gastronomía & Literatura",
+      shortDescription: "Una comida de cinco tiempos inspirada en grandes obras literarias y maridada con nuestros vinos.",
+      description: "Sumérgete en un viaje culinario con el menú de temporada de cinco tiempos de nuestro chef residente, cada plato inspirado en una obra literaria famosa y magistralmente maridado con nuestros vinos. Esta experiencia inmersiva muestra cómo nuestros vinos complementan y realzan la alta cocina y la literatura.",
       duration: 180,
       price: "195",
       imageUrl: "https://images.unsplash.com/photo-1432457990754-c8b5f21448de",
@@ -114,45 +114,45 @@ export class MemStorage implements IStorage {
 
     // Create sample wines
     this.createWine({
-      name: "Estate Reserve Cabernet Sauvignon",
+      name: "Reserva Cien Años de Soledad",
       vintage: "2018",
-      category: "red reserve",
+      category: "tinto reserva",
       price: "125",
       rating: "4.9",
-      description: "Notes of black currant, cedar, and vanilla with firm tannins and a long, elegant finish.",
+      description: "Notas de grosella negra, cedro y vainilla con taninos firmes y un final elegante y persistente. Un vino complejo como la saga de los Buendía.",
       imageUrl: "https://images.unsplash.com/photo-1609951651556-5334e2706168",
       isReserve: true,
-      pairings: ["Aged Steak", "Lamb", "Dark Chocolate"]
+      pairings: ["Cordero", "Chocolate Amargo", "Carnes Añejadas"]
     });
 
     this.createWine({
-      name: "Estate Chardonnay",
+      name: "Chardonnay Neruda",
       vintage: "2020",
-      category: "white",
+      category: "blanco",
       price: "65",
       rating: "4.7",
-      description: "Aromas of lemon, apple, and toasted oak with a creamy texture and balanced acidity.",
+      description: "Aromas de limón, manzana y roble tostado con una textura cremosa y acidez equilibrada. Tan expresivo como los versos del poeta chileno.",
       imageUrl: "https://images.unsplash.com/photo-1662488023079-5f27f180b8b4",
       isReserve: false,
-      pairings: ["Seafood", "Poultry", "Creamy Pasta"]
+      pairings: ["Mariscos", "Aves", "Pasta con Crema"]
     });
 
     this.createWine({
-      name: "Estate Pinot Noir",
+      name: "Pinot Noir Cortázar",
       vintage: "2019",
-      category: "red",
+      category: "tinto",
       price: "85",
       rating: "4.8",
-      description: "Delicate aromas of cherry, raspberry, and subtle spice with silky tannins and a graceful finish.",
+      description: "Delicados aromas de cereza, frambuesa y sutiles especias con taninos sedosos y un final elegante. Tan intrincado como los cuentos del maestro argentino.",
       imageUrl: "https://images.unsplash.com/photo-1586370434639-0fe43b2d32e6",
       isReserve: false,
-      pairings: ["Salmon", "Duck", "Mushroom Dishes"]
+      pairings: ["Salmón", "Pato", "Platos con Hongos"]
     });
 
     // Create sample vineyard areas
     this.createVineyardArea({
-      name: "Cabernet Vineyard",
-      description: "Our oldest vines, planted in 1978 on a south-facing slope with ideal drainage.",
+      name: "Viñedo Macondo",
+      description: "Nuestras vides más antiguas, plantadas en 1978 en una ladera orientada al sur con drenaje ideal. Nombrado en honor a la tierra mítica de García Márquez.",
       type: "vineyards",
       icon: "fa-wine-bottle",
       position: {x: 30, y: 25},
@@ -160,8 +160,8 @@ export class MemStorage implements IStorage {
     });
 
     this.createVineyardArea({
-      name: "Main Winery & Cellar",
-      description: "Our state-of-the-art facility where traditional craftsmanship meets modern innovation.",
+      name: "Bodega & Biblioteca",
+      description: "Nuestra instalación de vanguardia donde la artesanía tradicional se encuentra con la innovación moderna. Incluye una biblioteca con primeras ediciones latinoamericanas.",
       type: "facilities",
       icon: "fa-home",
       position: {x: 40, y: 60},
@@ -169,8 +169,8 @@ export class MemStorage implements IStorage {
     });
 
     this.createVineyardArea({
-      name: "Tasting Room",
-      description: "Our elegant tasting room offers panoramic views and an immersive wine experience.",
+      name: "Sala de Cata & Lectura",
+      description: "Nuestra elegante sala de cata ofrece vistas panorámicas y una experiencia inmersiva de vino y literatura con lecturas programadas semanalmente.",
       type: "facilities",
       icon: "fa-glass-cheers",
       position: {x: 20, y: 40},

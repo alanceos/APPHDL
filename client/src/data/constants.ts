@@ -11,31 +11,31 @@ export const COLORS = {
 
 // Company information
 export const COMPANY_INFO = {
-  name: 'Estate de Vino',
-  address: '1800 Vineyard Lane, Napa Valley, CA 94558',
-  phone: '(707) 555-8765',
-  email: 'info@estatedevino.com',
+  name: 'Hacienda de Letras',
+  address: 'Km 35 Carretera a Valle de Bravo, Colonia Viñedos, 52200',
+  phone: '(55) 5123-4567',
+  email: 'info@haciendadeletras.com',
   hours: {
-    toursTastings: 'Daily 10am - 4pm',
-    restaurant: 'Wed - Sun 12pm - 8pm',
-    wineShop: 'Daily 9am - 5pm',
+    toursTastings: 'Diariamente 10am - 4pm',
+    restaurant: 'Mié - Dom 12pm - 8pm',
+    wineShop: 'Diariamente 9am - 5pm',
   },
   social: {
-    instagram: 'https://instagram.com/estatedevino',
-    facebook: 'https://facebook.com/estatedevino',
-    twitter: 'https://twitter.com/estatedevino',
-    pinterest: 'https://pinterest.com/estatedevino',
+    instagram: 'https://instagram.com/haciendadeletras',
+    facebook: 'https://facebook.com/haciendadeletras',
+    twitter: 'https://twitter.com/hdeletras',
+    pinterest: 'https://pinterest.com/haciendadeletras',
   }
 };
 
 // Navigation links
 export const NAV_LINKS = [
-  { name: 'OUR STORY', href: '#story' },
-  { name: 'EXPERIENCES', href: '#experiences' },
-  { name: 'WINES', href: '#wines' },
-  { name: 'VINEYARD', href: '#vineyard' },
-  { name: 'CONTACT', href: '#contact' },
-  { name: 'RESERVE', href: '#reserve', isButton: true },
+  { name: 'NUESTRA HISTORIA', href: '#story' },
+  { name: 'EXPERIENCIAS', href: '#experiences' },
+  { name: 'VINOS', href: '#wines' },
+  { name: 'VIÑEDO', href: '#vineyard' },
+  { name: 'CONTACTO', href: '#contact' },
+  { name: 'RESERVAR', href: '#reserve', isButton: true },
 ];
 
 // Image sources for parallax sections

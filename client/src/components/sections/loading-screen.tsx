@@ -20,9 +20,9 @@ export default function LoadingScreen() {
             duration: 1.5 
           }}
         >
-          <i className="fas fa-wine-glass-alt text-6xl text-wine-red"></i>
+          <i className="fas fa-book-open text-6xl text-wine-red"></i>
         </motion.div>
-        <h2 className="font-serif text-2xl text-wine-red">Estate de Vino</h2>
+        <h2 className="font-serif text-2xl text-wine-red">Hacienda de Letras</h2>
       </div>
     </motion.div>
   );

@@ -27,13 +27,13 @@ export default function HeroSection() {
             className="text-4xl md:text-6xl lg:text-7xl font-serif font-light text-white text-shadow mb-6"
             variants={fadeInUp}
           >
-            Experience the Art of Winemaking
+            El Arte del Vino y la Literatura
           </motion.h1>
           <motion.p 
             className="text-white text-lg md:text-xl mb-10 font-light"
             variants={fadeInUp}
           >
-            An extraordinary journey through history, tradition, and exceptional taste
+            Un viaje extraordinario donde los sabores se entrelazan con la historia y las palabras
           </motion.p>
           <motion.div 
             className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6"
@@ -43,13 +43,13 @@ export default function HeroSection() {
               href="#reserve" 
               className="bg-gold text-deep-brown hover:bg-white px-8 py-3 transition-colors duration-300 font-sans tracking-wider text-sm font-medium"
             >
-              RESERVE YOUR VISIT
+              RESERVA TU VISITA
             </a>
             <a 
               href="#story" 
               className="border border-white text-white hover:bg-white hover:text-deep-brown px-8 py-3 transition-colors duration-300 font-sans tracking-wider text-sm font-medium"
             >
-              DISCOVER OUR STORY
+              DESCUBRE NUESTRA HISTORIA
             </a>
           </motion.div>
         </motion.div>

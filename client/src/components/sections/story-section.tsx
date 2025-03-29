@@ -22,7 +22,7 @@ export default function StorySection() {
                 className="text-3xl md:text-5xl font-serif mb-6 text-wine-red"
                 variants={fadeInUp}
               >
-                A Legacy of Excellence
+                Un Legado de Excelencia Literaria
               </motion.h2>
               <motion.div 
                 className="w-20 h-1 bg-gold mb-8"
@@ -32,26 +32,26 @@ export default function StorySection() {
                 className="mb-6 text-deep-brown leading-relaxed"
                 variants={fadeInUp}
               >
-                For over five generations, the Laurent family has cultivated the art of winemaking with passion and precision. Our estate spans 200 acres of the finest terroir, nurturing vines that produce exceptional grapes with unique character.
+                Durante más de cinco generaciones, la familia Letras ha cultivado el arte de la vinificación con pasión y precisión. Nuestra hacienda abarca 80 hectáreas del mejor terroir, nutriendo vides que producen uvas excepcionales con carácter único, mientras fomentamos el amor por la literatura.
               </motion.p>
               <motion.p 
                 className="mb-6 text-deep-brown leading-relaxed"
                 variants={fadeInUp}
               >
-                Every bottle of Estate de Vino wine encapsulates our philosophy: a harmonious balance of tradition and innovation, where time-honored techniques meet modern excellence.
+                Cada botella de vino de Hacienda de Letras encapsula nuestra filosofía: un equilibrio armonioso entre tradición e innovación, donde las técnicas ancestrales se encuentran con la excelencia moderna, y los sabores se entrelazan con historias de grandes autores latinoamericanos.
               </motion.p>
               <motion.p 
                 className="mb-10 text-deep-brown leading-relaxed"
                 variants={fadeInUp}
               >
-                Our commitment to sustainable practices ensures that we preserve our land for future generations, maintaining the delicate ecosystem that gives our wines their distinctive qualities.
+                Nuestro compromiso con las prácticas sostenibles garantiza que preservemos nuestra tierra para las generaciones futuras, manteniendo el delicado ecosistema que da a nuestros vinos sus cualidades distintivas, así como nuestra biblioteca de primeras ediciones y manuscritos históricos.
               </motion.p>
               <motion.a 
                 href="#experiences" 
                 className="inline-block border-b-2 border-gold text-deep-brown hover:text-wine-red transition-colors duration-300 font-medium"
                 variants={fadeInUp}
               >
-                EXPLORE OUR VINEYARD
+                EXPLORA NUESTRA HACIENDA
               </motion.a>
             </motion.div>
             <motion.div 
