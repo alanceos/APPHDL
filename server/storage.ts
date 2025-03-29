@@ -84,8 +84,8 @@ export class MemStorage implements IStorage {
       shortDescription: "Un viaje íntimo por nuestra colección premium, guiado por enólogos expertos.",
       description: "Disfruta de una cata cuidadosamente seleccionada de seis vinos de Hacienda de Letras, incluyendo nuestras reservas limitadas. Nuestros expertos te guiarán a través de las características únicas de cada vino mientras descubres los secretos del maridaje perfecto en un ambiente exclusivo.",
       duration: 90,
-      price: "85",
-      imageUrl: "https://images.pexels.com/photos/5380640/pexels-photo-5380640.jpeg",
+      price: "$1,700",
+      imageUrl: "https://images.pexels.com/photos/1470545/pexels-photo-1470545.jpeg?auto=compress&cs=tinysrgb&w=1600",
       ratings: "5.0",
       reviewCount: 124
     });
@@ -95,8 +95,8 @@ export class MemStorage implements IStorage {
       shortDescription: "Participa en nuestra tradicional celebración de la cosecha con música, baile y los mejores vinos.",
       description: "Sumérgete en nuestra celebración anual de la vendimia, donde podrás participar en la cosecha y pisado tradicional de la uva. Disfruta de música en vivo, bailes regionales y una gran parrillada acompañada de nuestros mejores vinos. Una fiesta para todos los sentidos que celebra la rica tradición vitivinícola de nuestra región.",
       duration: 240,
-      price: "120",
-      imageUrl: "https://images.pexels.com/photos/5275085/pexels-photo-5275085.jpeg",
+      price: "$2,400",
+      imageUrl: "https://images.pexels.com/photos/8472114/pexels-photo-8472114.jpeg?auto=compress&cs=tinysrgb&w=1600",
       ratings: "4.8",
       reviewCount: 98
     });
@@ -106,8 +106,8 @@ export class MemStorage implements IStorage {
       shortDescription: "Una experiencia gastronómica exclusiva en nuestros viñedos iluminados bajo el cielo nocturno.",
       description: "Vive una velada inolvidable con un menú degustación de cinco tiempos, donde cada plato está magistralmente maridado con uno de nuestros vinos premium. La cena se realiza en nuestro viñedo principal, decorado con luces y antorchas, creando un ambiente mágico bajo las estrellas con música en vivo de fondo.",
       duration: 180,
-      price: "195",
-      imageUrl: "https://images.pexels.com/photos/3656118/pexels-photo-3656118.jpeg",
+      price: "$3,900",
+      imageUrl: "https://images.pexels.com/photos/6063263/pexels-photo-6063263.jpeg?auto=compress&cs=tinysrgb&w=1600",
       ratings: "5.0",
       reviewCount: 86
     });
@@ -117,7 +117,7 @@ export class MemStorage implements IStorage {
       name: "Gran Reserva Hacienda",
       vintage: "2015",
       category: "tinto reserva",
-      price: "125",
+      price: "$2,500",
       rating: "4.9",
       description: "Nuestro vino insignia, con notas de grosella negra, cedro y vainilla con taninos firmes y un final elegante y persistente. Perfecto para celebraciones especiales y momentos que merecen ser recordados.",
       imageUrl: "https://images.pexels.com/photos/7246427/pexels-photo-7246427.jpeg",
@@ -129,10 +129,10 @@ export class MemStorage implements IStorage {
       name: "Chardonnay Celebración",
       vintage: "2020",
       category: "blanco",
-      price: "65",
+      price: "$1,300",
       rating: "4.7",
       description: "Aromas de limón, manzana y roble tostado con una textura cremosa y acidez equilibrada. El complemento perfecto para encuentros sociales y celebraciones al aire libre.",
-      imageUrl: "https://images.pexels.com/photos/6984096/pexels-photo-6984096.jpeg",
+      imageUrl: "https://images.pexels.com/photos/3019019/pexels-photo-3019019.jpeg?auto=compress&cs=tinysrgb&w=1600",
       isReserve: false,
       pairings: ["Mariscos", "Aves", "Pasta con Crema"]
     });
@@ -141,7 +141,7 @@ export class MemStorage implements IStorage {
       name: "Pinot Noir Fiesta",
       vintage: "2019",
       category: "tinto",
-      price: "85",
+      price: "$1,700",
       rating: "4.8",
       description: "Delicados aromas de cereza, frambuesa y sutiles especias con taninos sedosos y un final elegante. Un vino versátil ideal para acompañar eventos sociales y reuniones entre amigos.",
       imageUrl: "https://images.pexels.com/photos/8471739/pexels-photo-8471739.jpeg",

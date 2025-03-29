@@ -17,7 +17,7 @@ const EVENTS = [
     image: 'https://images.unsplash.com/photo-1513267048331-5611cad62e41?q=80&w=500&auto=format&fit=crop',
     description: 'Comience el año con una exclusiva cata de espumosos y tapas gourmet en nuestro viñedo.',
     time: '18:00 - 21:00',
-    price: '€50',
+    price: '$1,000',
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const EVENTS = [
     image: 'https://images.unsplash.com/photo-1532498551838-b7a1cffa0daa?q=80&w=500&auto=format&fit=crop',
     description: 'Celebre el amor con una elegante cena de cinco tiempos maridada con nuestros mejores vinos reserva.',
     time: '20:00 - 23:00',
-    price: '€90 por pareja',
+    price: '$1,800 por pareja',
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const EVENTS = [
     image: 'https://images.unsplash.com/photo-1516749396351-ab16a461de52?q=80&w=500&auto=format&fit=crop',
     description: 'Aprenda las técnicas tradicionales de poda de viñedos y participe en nuestra ceremonia anual de bienvenida a la primavera.',
     time: '10:00 - 14:00',
-    price: '€25',
+    price: '$500',
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const EVENTS = [
     image: 'https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=500&auto=format&fit=crop',
     description: 'Descubra las fascinantes combinaciones entre nuestros vinos tintos seleccionados y chocolates artesanales.',
     time: '17:00 - 19:00',
-    price: '€40',
+    price: '$800',
   },
   {
     id: 5,
@@ -53,7 +53,7 @@ const EVENTS = [
     image: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=500&auto=format&fit=crop',
     description: 'Deguste platos tradicionales de la región en combinación con nuestra amplia selección de vinos.',
     time: '12:00 - 18:00',
-    price: '€55',
+    price: '$1,100',
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ const EVENTS = [
     image: 'https://images.unsplash.com/photo-1499364615646-ec38552f4f34?q=80&w=500&auto=format&fit=crop',
     description: 'Disfrute de un concierto al aire libre mientras el sol se pone sobre nuestros viñedos con una copa de vino en mano.',
     time: '19:00 - 22:00',
-    price: '€35',
+    price: '$700',
   },
   {
     id: 7,
@@ -71,7 +71,7 @@ const EVENTS = [
     image: 'https://images.unsplash.com/photo-1531722569936-825d3dd91b15?q=80&w=500&auto=format&fit=crop',
     description: 'Observe las estrellas con telescopios profesionales mientras degusta nuestros vinos especiales de reserva.',
     time: '21:30 - 00:30',
-    price: '€45',
+    price: '$900',
   },
   {
     id: 8,
@@ -80,7 +80,7 @@ const EVENTS = [
     image: 'https://images.unsplash.com/photo-1569919659476-f0852f6834b7?q=80&w=500&auto=format&fit=crop',
     description: 'Celebre con nosotros el inicio de la temporada de cosecha con música, comida y vino ilimitado.',
     time: '16:00 - 22:00',
-    price: '€45',
+    price: '$900',
   },
   {
     id: 9,
@@ -89,7 +89,7 @@ const EVENTS = [
     image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=500&auto=format&fit=crop',
     description: 'Aprenda los fundamentos de la cata de vinos y la enología con nuestro sommelier.',
     time: '11:00 - 14:00',
-    price: '€60',
+    price: '$1,200',
   },
   {
     id: 10,
@@ -107,7 +107,7 @@ const EVENTS = [
     image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=500&auto=format&fit=crop',
     description: 'Deguste nuestra nueva colección de vinos de temporada con maridaje de quesos artesanales.',
     time: '18:30 - 20:30',
-    price: '€38',
+    price: '$760',
   },
   {
     id: 12,
@@ -116,7 +116,7 @@ const EVENTS = [
     image: 'https://images.unsplash.com/photo-1576867663093-c2a4ea51e7ce?q=80&w=500&auto=format&fit=crop',
     description: 'Celebre la temporada navideña con una elegante cena de gala en nuestra centenaria bodega subterránea.',
     time: '20:00 - 23:30',
-    price: '€95',
+    price: '$1,900',
   },
 ];
 

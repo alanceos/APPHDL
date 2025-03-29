@@ -44,7 +44,7 @@ export const IMAGES = {
   hero: 'https://images.pexels.com/photos/442116/pexels-photo-442116.jpeg?auto=compress&cs=tinysrgb&w=1600', // Imagen de viñedo con filas de vides
   story: 'https://images.pexels.com/photos/3076764/pexels-photo-3076764.jpeg?auto=compress&cs=tinysrgb&w=1600', // Viñedo al atardecer
   parallax: 'https://images.pexels.com/photos/2702805/pexels-photo-2702805.jpeg?auto=compress&cs=tinysrgb&w=1600', // Fila de barriles
-  vineyardMap: 'https://images.pexels.com/photos/12176308/pexels-photo-12176308.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Vista aérea del viñedo
+  vineyardMap: 'https://images.pexels.com/photos/1267360/pexels-photo-1267360.jpeg?auto=compress&cs=tinysrgb&w=1600', // Vista aérea del viñedo con vides - ACTUALIZADA
   barrel: 'https://images.pexels.com/photos/2912108/pexels-photo-2912108.jpeg?auto=compress&cs=tinysrgb&w=1600', // Barril con copa de vino
   glasses: 'https://images.pexels.com/photos/66636/pexels-photo-66636.jpeg?auto=compress&cs=tinysrgb&w=1600', // Copas de vino tinto
   celebration: 'https://images.pexels.com/photos/1123260/pexels-photo-1123260.jpeg?auto=compress&cs=tinysrgb&w=1600', // Brindis con copas
