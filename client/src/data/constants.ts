@@ -40,8 +40,12 @@ export const NAV_LINKS = [
 
 // Image sources for parallax sections
 export const IMAGES = {
-  hero: 'https://images.unsplash.com/photo-1519682577862-22b62b24e493?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80',
-  story: 'https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-  parallax: 'https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80',
-  vineyardMap: 'https://images.unsplash.com/photo-1565955473425-3c136bad1461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+  hero: 'https://images.pexels.com/photos/442116/pexels-photo-442116.jpeg?auto=compress&cs=tinysrgb&w=1600', // Imagen de viñedo con filas de vides
+  story: 'https://images.pexels.com/photos/3076764/pexels-photo-3076764.jpeg?auto=compress&cs=tinysrgb&w=1600', // Viñedo al atardecer
+  parallax: 'https://images.pexels.com/photos/2702805/pexels-photo-2702805.jpeg?auto=compress&cs=tinysrgb&w=1600', // Fila de barriles
+  vineyardMap: 'https://images.pexels.com/photos/12176308/pexels-photo-12176308.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Vista aérea del viñedo
+  barrel: 'https://images.pexels.com/photos/2912108/pexels-photo-2912108.jpeg?auto=compress&cs=tinysrgb&w=1600', // Barril con copa de vino
+  glasses: 'https://images.pexels.com/photos/66636/pexels-photo-66636.jpeg?auto=compress&cs=tinysrgb&w=1600', // Copas de vino tinto
+  celebration: 'https://images.pexels.com/photos/1123260/pexels-photo-1123260.jpeg?auto=compress&cs=tinysrgb&w=1600', // Brindis con copas
+  vineyardBarrel: 'https://images.pexels.com/photos/2397398/pexels-photo-2397398.jpeg?auto=compress&cs=tinysrgb&w=1600', // Barril en viñedo
 };

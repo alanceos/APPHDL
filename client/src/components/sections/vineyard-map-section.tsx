@@ -41,7 +41,7 @@ export default function VineyardMapSection() {
             className="text-3xl md:text-5xl font-serif mb-6 text-wine-red"
             variants={fadeInUp}
           >
-            Our Vineyard
+            Nuestro Viñedo
           </motion.h2>
           <motion.div 
             className="w-20 h-1 bg-gold mb-8 mx-auto"
@@ -51,7 +51,7 @@ export default function VineyardMapSection() {
             className="text-deep-brown leading-relaxed"
             variants={fadeInUp}
           >
-            Explore our estate's unique terroir and facilities through this interactive map. Each area contributes to the exceptional quality and character of our wines.
+            Explora el terroir único y las instalaciones de nuestra finca a través de este mapa interactivo. Cada área contribuye a la calidad excepcional y al carácter de nuestros vinos.
           </motion.p>
         </motion.div>
         
@@ -66,7 +66,7 @@ export default function VineyardMapSection() {
             {/* Map background */}
             <img 
               src={IMAGES.vineyardMap} 
-              alt="Aerial view of the vineyard" 
+              alt="Vista aérea del viñedo" 
               className="w-full h-full object-cover"
             />
             
@@ -74,11 +74,11 @@ export default function VineyardMapSection() {
             <div className="absolute top-0 left-0 right-0 bottom-0">
               {isLoading ? (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-wine-red">Loading map...</div>
+                  <div className="text-wine-red">Cargando mapa...</div>
                 </div>
               ) : error ? (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-wine-red">Failed to load map data. Please try again later.</div>
+                  <div className="text-wine-red">Error al cargar el mapa. Por favor, inténtelo de nuevo más tarde.</div>
                 </div>
               ) : (
                 areas?.map((area) => (
@@ -97,19 +97,19 @@ export default function VineyardMapSection() {
               className={`map-filter px-6 py-2 border border-wine-red ${activeFilter === 'all' ? 'bg-wine-red text-white' : 'text-wine-red hover:bg-wine-red hover:text-white'} transition-colors duration-300 text-sm`}
               onClick={() => handleFilterChange('all')}
             >
-              All Areas
+              Todas las Áreas
             </button>
             <button 
               className={`map-filter px-6 py-2 border border-wine-red ${activeFilter === 'vineyards' ? 'bg-wine-red text-white' : 'text-wine-red hover:bg-wine-red hover:text-white'} transition-colors duration-300 text-sm`}
               onClick={() => handleFilterChange('vineyards')}
             >
-              Vineyards
+              Viñedos
             </button>
             <button 
               className={`map-filter px-6 py-2 border border-wine-red ${activeFilter === 'facilities' ? 'bg-wine-red text-white' : 'text-wine-red hover:bg-wine-red hover:text-white'} transition-colors duration-300 text-sm`}
               onClick={() => handleFilterChange('facilities')}
             >
-              Facilities
+              Instalaciones
             </button>
           </div>
         </motion.div>

@@ -22,10 +22,10 @@ export default function ParallaxSection() {
           variants={fadeIn}
         >
           <p className="text-2xl md:text-4xl font-serif text-white text-shadow mb-6 italic">
-            "Wine is the poetry of the earth."
+            "El vino es la poesía de la tierra."
           </p>
           <footer className="text-gold font-serif text-xl">
-            — Estate de Vino Philosophy
+            — Filosofía de Hacienda de Letras
           </footer>
         </motion.blockquote>
       </div>

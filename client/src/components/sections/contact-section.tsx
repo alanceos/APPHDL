@@ -15,11 +15,11 @@ import { insertContactMessageSchema } from '@shared/schema';
 import { z } from 'zod';
 
 const contactFormSchema = insertContactMessageSchema.extend({
-  fullName: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  phone: z.string().min(10, 'Please enter a valid phone number'),
-  subject: z.string().min(1, 'Please select a subject'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  fullName: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
+  email: z.string().email('Por favor, introduce un correo electrónico válido'),
+  phone: z.string().min(10, 'Por favor, introduce un número de teléfono válido'),
+  subject: z.string().min(1, 'Por favor, selecciona un asunto'),
+  message: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -45,15 +45,15 @@ export default function ContactSection() {
     },
     onSuccess: () => {
       toast({
-        title: "Message Sent!",
-        description: "Thank you for your message. We'll get back to you soon.",
+        title: "¡Mensaje Enviado!",
+        description: "Gracias por tu mensaje. Nos pondremos en contacto pronto.",
       });
       form.reset();
     },
     onError: (error) => {
       toast({
         title: "Error",
-        description: `Failed to send message: ${error.message}`,
+        description: `No se pudo enviar el mensaje: ${error.message}`,
         variant: "destructive",
       });
     },
@@ -79,7 +79,7 @@ export default function ContactSection() {
                 className="text-3xl md:text-5xl font-serif mb-6 text-wine-red"
                 variants={fadeInUp}
               >
-                Contact Us
+                Contáctanos
               </motion.h2>
               <motion.div 
                 className="w-20 h-1 bg-gold mb-8"
@@ -90,7 +90,7 @@ export default function ContactSection() {
                 className="mb-8"
                 variants={fadeInUp}
               >
-                <h3 className="text-xl font-serif mb-4 text-deep-brown">Visit Our Estate</h3>
+                <h3 className="text-xl font-serif mb-4 text-deep-brown">Visita Nuestra Hacienda</h3>
                 <p className="text-deep-brown mb-2">
                   <i className="fas fa-map-marker-alt mr-3 text-wine-red"></i> {COMPANY_INFO.address}
                 </p>
@@ -106,15 +106,15 @@ export default function ContactSection() {
                 className="mb-8"
                 variants={fadeInUp}
               >
-                <h3 className="text-xl font-serif mb-4 text-deep-brown">Hours</h3>
+                <h3 className="text-xl font-serif mb-4 text-deep-brown">Horarios</h3>
                 <p className="text-deep-brown mb-2">
-                  <span className="font-medium">Tours & Tastings:</span> {COMPANY_INFO.hours.toursTastings}
+                  <span className="font-medium">Visitas y Degustaciones:</span> {COMPANY_INFO.hours.toursTastings}
                 </p>
                 <p className="text-deep-brown mb-2">
-                  <span className="font-medium">Restaurant:</span> {COMPANY_INFO.hours.restaurant}
+                  <span className="font-medium">Restaurante:</span> {COMPANY_INFO.hours.restaurant}
                 </p>
                 <p className="text-deep-brown">
-                  <span className="font-medium">Wine Shop:</span> {COMPANY_INFO.hours.wineShop}
+                  <span className="font-medium">Tienda de Vinos:</span> {COMPANY_INFO.hours.wineShop}
                 </p>
               </motion.div>
               
@@ -122,7 +122,7 @@ export default function ContactSection() {
                 className="mb-8"
                 variants={fadeInUp}
               >
-                <h3 className="text-xl font-serif mb-4 text-deep-brown">Follow Us</h3>
+                <h3 className="text-xl font-serif mb-4 text-deep-brown">Síguenos</h3>
                 <div className="flex space-x-4">
                   <a 
                     href={COMPANY_INFO.social.instagram} 
@@ -165,14 +165,14 @@ export default function ContactSection() {
             >
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="bg-white p-8 shadow-md">
-                  <h3 className="text-2xl font-serif mb-6 text-wine-red">Send Us a Message</h3>
+                  <h3 className="text-2xl font-serif mb-6 text-wine-red">Envíanos un Mensaje</h3>
                   
                   <FormField
                     control={form.control}
                     name="fullName"
                     render={({ field }) => (
                       <FormItem className="mb-4">
-                        <FormLabel className="block text-deep-brown mb-2 text-sm">Full Name</FormLabel>
+                        <FormLabel className="block text-deep-brown mb-2 text-sm">Nombre Completo</FormLabel>
                         <FormControl>
                           <Input 
                             {...field} 
@@ -189,7 +189,7 @@ export default function ContactSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem className="mb-4">
-                        <FormLabel className="block text-deep-brown mb-2 text-sm">Email Address</FormLabel>
+                        <FormLabel className="block text-deep-brown mb-2 text-sm">Correo Electrónico</FormLabel>
                         <FormControl>
                           <Input 
                             {...field} 
@@ -207,7 +207,7 @@ export default function ContactSection() {
                     name="phone"
                     render={({ field }) => (
                       <FormItem className="mb-4">
-                        <FormLabel className="block text-deep-brown mb-2 text-sm">Phone Number</FormLabel>
+                        <FormLabel className="block text-deep-brown mb-2 text-sm">Número de Teléfono</FormLabel>
                         <FormControl>
                           <Input 
                             {...field} 
@@ -225,21 +225,21 @@ export default function ContactSection() {
                     name="subject"
                     render={({ field }) => (
                       <FormItem className="mb-4">
-                        <FormLabel className="block text-deep-brown mb-2 text-sm">Subject</FormLabel>
+                        <FormLabel className="block text-deep-brown mb-2 text-sm">Asunto</FormLabel>
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
                         >
                           <FormControl>
                             <SelectTrigger className="w-full px-4 py-3 border border-gray-300 focus:border-gold focus:outline-none transition-colors duration-300">
-                              <SelectValue placeholder="Select a subject" />
+                              <SelectValue placeholder="Selecciona un asunto" />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="tours">Tours & Tastings</SelectItem>
-                            <SelectItem value="events">Private Events</SelectItem>
-                            <SelectItem value="orders">Wine Orders</SelectItem>
-                            <SelectItem value="other">Other Inquiry</SelectItem>
+                            <SelectItem value="tours">Visitas y Degustaciones</SelectItem>
+                            <SelectItem value="events">Eventos Privados</SelectItem>
+                            <SelectItem value="orders">Pedidos de Vino</SelectItem>
+                            <SelectItem value="other">Otra Consulta</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -252,7 +252,7 @@ export default function ContactSection() {
                     name="message"
                     render={({ field }) => (
                       <FormItem className="mb-6">
-                        <FormLabel className="block text-deep-brown mb-2 text-sm">Message</FormLabel>
+                        <FormLabel className="block text-deep-brown mb-2 text-sm">Mensaje</FormLabel>
                         <FormControl>
                           <Textarea 
                             {...field} 
@@ -270,7 +270,7 @@ export default function ContactSection() {
                     className="w-full bg-wine-red text-white hover:bg-gold hover:text-deep-brown px-8 py-3 transition-colors duration-300 font-sans tracking-wider text-sm font-medium"
                     disabled={isPending}
                   >
-                    {isPending ? "SENDING..." : "SEND MESSAGE"}
+                    {isPending ? "ENVIANDO..." : "ENVIAR MENSAJE"}
                   </Button>
                 </form>
               </Form>
