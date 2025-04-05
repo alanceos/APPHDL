@@ -1,15 +1,16 @@
 import { motion } from 'framer-motion';
 import { fadeInUp, scaleIn } from '@/lib/animations';
-import { IMAGES } from '@/data/constants';
+import { IMAGES, IMAGE_DIMENSIONS } from '@/data/constants';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 export default function StorySection() {
   return (
     <section id="story" className="py-24 bg-cream">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row items-center gap-12">
             <motion.div 
-              className="md:w-1/2 mb-12 md:mb-0 md:pr-12"
+              className="md:w-1/2"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -55,29 +56,32 @@ export default function StorySection() {
               </motion.a>
 
               <motion.div 
-                className="mt-8 w-full"
+                className="mt-12 w-full"
                 variants={fadeInUp}
               >
-                <img 
-                  src={IMAGES.winePouring} 
-                  alt="Vino vertiéndose en copa" 
-                  className="w-full max-w-md rounded-lg shadow-lg"
+                <OptimizedImage 
+                  src={IMAGES.winePouring}
+                  alt="Sommelier sirviendo vino premium"
+                  className="w-full max-w-md rounded-lg shadow-xl"
+                  width={IMAGE_DIMENSIONS.gallery.width}
+                  height={IMAGE_DIMENSIONS.gallery.height}
                 />
               </motion.div>
             </motion.div>
+            
             <motion.div 
-              className="md:w-1/2 relative h-96 md:h-auto overflow-hidden"
+              className="md:w-1/2 relative h-[600px] md:h-[800px] overflow-hidden rounded-lg shadow-2xl"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={scaleIn}
             >
-              <motion.img 
-                src={IMAGES.story} 
-                alt="Vineyard legacy" 
-                className="absolute inset-0 w-full h-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.7, ease: "easeInOut" }}
+              <OptimizedImage 
+                src={IMAGES.story}
+                alt="Barricas en nuestra bodega histórica"
+                className="w-full h-full"
+                width={IMAGE_DIMENSIONS.gallery.width}
+                height={IMAGE_DIMENSIONS.gallery.height}
               />
             </motion.div>
           </div>

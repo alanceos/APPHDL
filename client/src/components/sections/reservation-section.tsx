@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { COMPANY_INFO } from '@/data/constants';
+import { COMPANY_INFO, FEATURED_EXPERIENCES } from '@/data/constants';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { format } from 'date-fns';
@@ -19,11 +19,15 @@ import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
 import { Experience, insertReservationSchema } from '@shared/schema';
 import { z } from 'zod';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 type Step = 'experience' | 'datetime' | 'details' | 'payment' | 'confirmation';
 
 // Extend the reservation schema
 const reservationFormSchema = insertReservationSchema.extend({
+  experienceId: z.string({
+    required_error: "Por favor, selecciona una experiencia",
+  }),
   date: z.date({
     required_error: "Por favor, selecciona una fecha",
   }),
@@ -45,18 +49,14 @@ type ReservationFormValues = z.infer<typeof reservationFormSchema>;
 
 export default function ReservationSection() {
   const [currentStep, setCurrentStep] = useState<Step>('experience');
-  const [selectedExperienceId, setSelectedExperienceId] = useState<number | null>(null);
+  const [selectedExperienceId, setSelectedExperienceId] = useState<string | null>(null);
   const { toast } = useToast();
   const queryClient = useQueryClient();
   
-  const { data: experiences, isLoading } = useQuery<Experience[]>({
-    queryKey: ['/api/experiences'],
-  });
-
   const form = useForm<ReservationFormValues>({
     resolver: zodResolver(reservationFormSchema),
     defaultValues: {
-      experienceId: 0,
+      experienceId: '0',
       fullName: '',
       email: '',
       phone: '',
@@ -107,15 +107,15 @@ export default function ReservationSection() {
   });
 
   // Helper to calculate total price
-  const calculateTotalPrice = (experienceId: number, guests: number): string => {
-    const selectedExperience = experiences?.find(exp => exp.id === experienceId);
+  const calculateTotalPrice = (experienceId: string, guests: number): string => {
+    const selectedExperience = FEATURED_EXPERIENCES.find(exp => exp.id === experienceId);
     if (!selectedExperience) return '0';
     
-    const pricePerPerson = parseFloat(String(selectedExperience.price));
+    const pricePerPerson = parseInt(selectedExperience.price.replace(/[^0-9]/g, ''));
     return (pricePerPerson * guests).toString();
   };
 
-  const selectExperience = (experienceId: number) => {
+  const selectExperience = (experienceId: string) => {
     setSelectedExperienceId(experienceId);
     form.setValue('experienceId', experienceId);
     
@@ -246,50 +246,65 @@ export default function ReservationSection() {
             <div className="reservation-form">
               <h3 className="text-2xl font-serif mb-6 text-wine-red text-center">Selecciona tu Experiencia</h3>
               
-              {isLoading ? (
-                <div className="text-center py-8">Cargando experiencias...</div>
-              ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  {experiences?.map((experience) => (
-                    <div 
-                      key={experience.id}
-                      className={`experience-option cursor-pointer border-2 ${selectedExperienceId === experience.id ? 'border-gold bg-white' : 'border-transparent'} hover:border-gold p-4 rounded-lg transition-all duration-300`}
-                      onClick={() => selectExperience(experience.id)}
-                    >
-                      <div className="flex items-start mb-4">
-                        <div className="mr-4">
-                          <img 
-                            src={`${experience.imageUrl}?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80`} 
-                            alt={experience.name} 
-                            className="w-16 h-16 object-cover rounded"
-                          />
+              <div className="grid gap-6">
+                {FEATURED_EXPERIENCES.map((experience) => (
+                  <div
+                    key={experience.id}
+                    className={`p-4 border rounded-lg cursor-pointer transition-all duration-300 ${
+                      selectedExperienceId === experience.id
+                        ? 'border-gold bg-cream shadow-md'
+                        : 'border-gray-200 hover:border-gold'
+                    }`}
+                    onClick={() => selectExperience(experience.id)}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-24 h-24 relative rounded-lg overflow-hidden">
+                        <OptimizedImage
+                          src={experience.imageUrl}
+                          alt={experience.title}
+                          className="object-cover"
+                          width={96}
+                          height={96}
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-serif text-wine-red">{experience.title}</h4>
+                        <div className="flex items-center gap-2 text-sm text-deep-brown/70 mb-1">
+                          <span>{experience.duration}</span>
+                          <span>•</span>
+                          <span>{experience.price} per person</span>
                         </div>
-                        <div>
-                          <h4 className="text-lg font-serif text-wine-red">{experience.name}</h4>
-                          <p className="text-deep-brown text-sm mb-2">
-                            {experience.duration} minutes | ${parseFloat(String(experience.price)).toFixed(2)} per person
-                          </p>
-                          <div className="flex text-gold text-xs">
-                            {Array.from({ length: 5 }).map((_, i) => (
-                              <i key={i} className={`fas ${i < Math.floor(parseFloat(String(experience.ratings))) ? 'fa-star' : i < parseFloat(String(experience.ratings)) ? 'fa-star-half-alt' : 'fa-star'}`}></i>
-                            ))}
-                            <span className="text-deep-brown ml-1">({experience.reviewCount} reviews)</span>
-                          </div>
+                        <p className="text-deep-brown/80 text-sm line-clamp-2">{experience.description}</p>
+                        <div className="flex items-center gap-1 mt-2">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <svg
+                              key={i}
+                              className={`w-4 h-4 ${
+                                i < experience.rating ? 'text-gold' : 'text-gray-300'
+                              }`}
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                          ))}
+                          <span className="text-sm text-deep-brown/70 ml-1">
+                            ({experience.reviews} reviews)
+                          </span>
                         </div>
                       </div>
-                      <p className="text-deep-brown text-sm">{experience.shortDescription}</p>
                     </div>
-                  ))}
-                </div>
-              )}
+                  </div>
+                ))}
+              </div>
               
-              <div className="text-center">
-                <Button 
+              <div className="mt-8 flex justify-end">
+                <Button
+                  type="button"
+                  className="bg-wine-red text-white hover:bg-gold transition-colors duration-300"
                   onClick={handleContinue}
-                  className="bg-wine-red text-white hover:bg-gold hover:text-deep-brown px-8 py-3 transition-colors duration-300 font-sans tracking-wider text-sm font-medium"
-                  disabled={isLoading}
                 >
-                  CONTINUAR
+                  Continuar
                 </Button>
               </div>
             </div>
@@ -487,7 +502,7 @@ export default function ReservationSection() {
                       <div className="flex justify-between mb-2">
                         <span className="text-deep-brown">Experience:</span>
                         <span className="font-medium text-deep-brown">
-                          {experiences?.find(exp => exp.id === selectedExperienceId)?.name}
+                          {FEATURED_EXPERIENCES.find(exp => exp.id === selectedExperienceId)?.title}
                         </span>
                       </div>
                       <div className="flex justify-between mb-2">
@@ -614,7 +629,7 @@ export default function ReservationSection() {
                       <div className="flex justify-between mb-2">
                         <span className="text-deep-brown">Experience:</span>
                         <span className="font-medium text-deep-brown">
-                          {experiences?.find(exp => exp.id === selectedExperienceId)?.name}
+                          {FEATURED_EXPERIENCES.find(exp => exp.id === selectedExperienceId)?.title}
                         </span>
                       </div>
                       <div className="flex justify-between mb-2">
@@ -668,7 +683,7 @@ export default function ReservationSection() {
                 <h4 className="text-lg font-serif text-wine-red mb-4">Reservation Details</h4>
                 <div className="text-left space-y-2">
                   <p className="text-deep-brown">
-                    <span className="font-medium">Experience:</span> {experiences?.find(exp => exp.id === selectedExperienceId)?.name}
+                    <span className="font-medium">Experience:</span> {FEATURED_EXPERIENCES.find(exp => exp.id === selectedExperienceId)?.title}
                   </p>
                   <p className="text-deep-brown">
                     <span className="font-medium">Date & Time:</span> {form.getValues('date') ? format(form.getValues('date'), "PPP") : ''} at {form.getValues('time')}

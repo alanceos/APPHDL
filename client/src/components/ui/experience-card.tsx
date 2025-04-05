@@ -1,45 +1,65 @@
 import { motion } from 'framer-motion';
-import { fadeInUp } from '@/lib/animations';
-import { Experience } from '@shared/schema';
+import OptimizedImage from './optimized-image';
+import { IMAGE_DIMENSIONS } from '@/data/constants';
 
 interface ExperienceCardProps {
-  experience: Experience;
+  title: string;
+  description: string;
+  imageUrl: string;
+  price: string;
+  href: string;
 }
 
-export default function ExperienceCard({ experience }: ExperienceCardProps) {
+export default function ExperienceCard({
+  title,
+  description,
+  imageUrl,
+  price,
+  href
+}: ExperienceCardProps) {
   return (
     <motion.div 
-      className="group bg-cream hover:shadow-xl transition-all duration-500 relative"
-      variants={fadeInUp}
+      className="group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.2 }}
     >
-      <a 
-        href={`/experiencia/${experience.id}`}
-        className="block cursor-pointer"
-      >
-        <div className="overflow-hidden h-64">
-          <img 
-            src={experience.imageUrl} 
-            alt={experience.name} 
-            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
-          />
-        </div>
-        <div className="p-6 border-t border-gold">
-          <h3 className="text-2xl font-serif mb-3 text-wine-red">{experience.name}</h3>
-          <p className="text-deep-brown mb-4">{experience.shortDescription}</p>
-          <div className="flex justify-between items-center">
-            <span className="text-gold font-serif text-xl">${parseFloat(String(experience.price)).toFixed(2)} por persona</span>
-            <span 
-              className="text-deep-brown hover:text-wine-red transition-colors duration-300"
-              aria-label={`Ver detalles de ${experience.name}`}
+      <div className="relative w-full h-[240px] overflow-hidden">
+        <OptimizedImage
+          src={imageUrl}
+          alt={title}
+          className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+          width={800}
+          height={600}
+          priority={true}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+      
+      <div className="p-6 flex-1 flex flex-col">
+        <h3 className="text-2xl font-serif text-wine-red mb-3">{title}</h3>
+        <p className="text-deep-brown/80 mb-4 flex-1">{description}</p>
+        <div className="flex items-center justify-between mt-auto">
+          <span className="text-gold font-serif text-lg">{price}</span>
+          <motion.a
+            href={href}
+            className="inline-flex items-center text-wine-red hover:text-gold transition-colors duration-300"
+            whileHover={{ x: 5 }}
+          >
+            Ver detalles
+            <svg 
+              className="w-4 h-4 ml-2" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </span>
-          </div>
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </motion.a>
         </div>
-      </a>
+      </div>
     </motion.div>
   );
 }

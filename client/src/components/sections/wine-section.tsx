@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import WineCard from '@/components/ui/wine-card';
 import { Wine } from '@shared/schema';
+import { IMAGES, FEATURED_WINES } from '@/data/constants';
 
 type WineCategory = 'all' | 'red' | 'white' | 'reserve';
 
@@ -40,17 +41,18 @@ export default function WineSection() {
             className="text-3xl md:text-5xl font-serif mb-6 text-wine-red"
             variants={fadeInUp}
           >
-            Nuestra Colección
+            Nuestros Vinos
           </motion.h2>
           <motion.div 
-            className="w-20 h-1 bg-gold mb-8 mx-auto"
+            className="w-20 h-1 bg-gold mx-auto mb-8"
             variants={fadeInUp}
           />
           <motion.p 
-            className="text-deep-brown leading-relaxed"
+            className="text-deep-brown text-lg"
             variants={fadeInUp}
           >
-            Cada botella representa la perfecta armonía entre naturaleza, tradición y artesanía. Explore nuestras selecciones premiadas, cada una con su propia historia y carácter único.
+            Descubre nuestra colección de vinos excepcionales, elaborados con pasión y 
+            experiencia, capturando la esencia única de nuestro terroir.
           </motion.p>
         </motion.div>
         
@@ -89,44 +91,46 @@ export default function WineSection() {
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
-          {isLoading ? (
-            // Loading skeleton
-            Array.from({ length: 3 }).map((_, index) => (
-              <div key={index} className="bg-white animate-pulse h-[600px]"></div>
-            ))
-          ) : error ? (
-            <div className="col-span-3 text-center text-wine-red">
-              Error al cargar los vinos. Por favor, inténtelo de nuevo más tarde.
-            </div>
-          ) : wines?.length === 0 ? (
-            <div className="col-span-3 text-center text-deep-brown py-12">
-              No se encontraron vinos en esta categoría.
-            </div>
-          ) : (
-            wines?.map((wine) => (
-              <WineCard key={wine.id} wine={wine} />
-            ))
-          )}
+          {FEATURED_WINES.map((wine, index) => (
+            <motion.div
+              key={wine.id}
+              variants={fadeInUp}
+              custom={index}
+            >
+              <WineCard {...wine} />
+            </motion.div>
+          ))}
         </motion.div>
         
         <motion.div 
-          className="mt-12 text-center"
+          className="text-center mt-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.5 }}
         >
           <a 
-            href="#" 
-            className="inline-block border-b-2 border-gold text-deep-brown hover:text-wine-red transition-colors duration-300 font-medium"
+            href="/vinos" 
+            className="inline-flex items-center text-wine-red hover:text-gold transition-colors duration-300 text-lg"
           >
-            VER COLECCIÓN COMPLETA
+            Explorar todos nuestros vinos
+            <svg 
+              className="w-5 h-5 ml-2" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
           </a>
         </motion.div>
       </div>

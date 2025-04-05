@@ -1,17 +1,24 @@
 import { motion } from 'framer-motion';
-import { IMAGES } from '@/data/constants';
+import { IMAGES, IMAGE_DIMENSIONS } from '@/data/constants';
 import { fadeIn } from '@/lib/animations';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 export default function ParallaxSection() {
   return (
     <section className="relative h-96 overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ 
-          backgroundImage: `url(${IMAGES.parallax})`,
-          backgroundAttachment: 'fixed'
-        }}
-      />
+      <div className="absolute inset-0">
+        <OptimizedImage
+          src={IMAGES.parallax}
+          alt="Bodega de vinos"
+          className="w-full h-full"
+          width={IMAGE_DIMENSIONS.gallery.width}
+          height={IMAGE_DIMENSIONS.gallery.height}
+        />
+        <div 
+          className="absolute inset-0"
+          style={{ backgroundAttachment: 'fixed' }}
+        />
+      </div>
       <div className="absolute inset-0 bg-black bg-opacity-40" />
       <div className="absolute inset-0 flex items-center justify-center px-4">
         <motion.blockquote 
