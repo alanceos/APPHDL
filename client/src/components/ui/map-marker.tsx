@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { VineyardArea } from '@shared/schema';
+import { VineyardArea } from '@/types';
 
 interface MapMarkerProps {
   area: VineyardArea;
@@ -10,16 +10,14 @@ interface MapMarkerProps {
 export default function MapMarker({ area, visible }: MapMarkerProps) {
   const [isHovered, setIsHovered] = useState(false);
   
-  const { position } = area;
-  
   if (!visible) return null;
   
   return (
     <motion.div 
       className="absolute group cursor-pointer"
       style={{ 
-        top: `${position.y}%`, 
-        left: `${position.x}%`, 
+        top: `${area.position.y}%`, 
+        left: `${area.position.x}%`, 
         transform: 'translate(-50%, -50%)' 
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -30,9 +28,9 @@ export default function MapMarker({ area, visible }: MapMarkerProps) {
     >
       <motion.div 
         className="w-12 h-12 rounded-full flex items-center justify-center text-white"
-        style={{ backgroundColor: `${area.color}aa` }}
+        style={{ backgroundColor: area.color ? `${area.color}aa` : '#722F37aa' }}
         whileHover={{ 
-          backgroundColor: area.color,
+          backgroundColor: area.color || '#722F37',
           scale: 1.1,
         }}
       >
@@ -50,6 +48,18 @@ export default function MapMarker({ area, visible }: MapMarkerProps) {
           >
             <h3 className="text-wine-red font-serif text-lg mb-1">{area.name}</h3>
             <p className="text-deep-brown text-sm">{area.description}</p>
+            {area.details && (
+              <div className="mt-2 pt-2 border-t border-gray-200">
+                {Object.entries(area.details).map(([key, value]) => (
+                  <div key={key} className="text-sm">
+                    <span className="font-medium text-wine-red">{key}:</span>{' '}
+                    <span className="text-deep-brown">
+                      {Array.isArray(value) ? value.join(', ') : value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
