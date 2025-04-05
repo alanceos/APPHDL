@@ -50,13 +50,7 @@
 }
 
 @layer base {
-  * {
-    @apply border-[1px] border-solid border-[hsl(var(--border))];
-  }
-
   body {
-    @apply font-sans antialiased;
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    @apply font-sans antialiased bg-background text-foreground;
   }
 }
